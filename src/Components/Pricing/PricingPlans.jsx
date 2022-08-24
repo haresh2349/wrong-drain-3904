@@ -1,6 +1,16 @@
-import { Box, Flex, Heading, HStack, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Grid,
+  GridItem,
+  Heading,
+  HStack,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import React, { useState } from "react";
 import { TriangleDownIcon } from "@chakra-ui/icons";
+import Plans from "./Plans";
 const PricingPlans = () => {
   const [annactive, setAnnActive] = useState(true);
   const [Monactive, setMonActive] = useState(false);
@@ -18,20 +28,15 @@ const PricingPlans = () => {
           our Premium features.
         </Text>
       </Box>
-      <Box>
-        <Flex
-          maxW={"40%"}
-          m="auto"
-          justifyContent={"center"}
-          position="relative"
-        >
+      <Box m="60px auto 50px" maxW={"40%"} position="relative">
+        <Flex justifyContent={"center"}>
           <Box
             color={"black"}
             bg="#FCE5D8"
             p={"0px 30px"}
             position="absolute"
-            left="0px"
-            bottom="-20px"
+            left="-5px"
+            top="25px"
             transform="rotate(-25deg)"
           >
             <Text>Save 10%</Text>
@@ -39,12 +44,12 @@ const PricingPlans = () => {
               <TriangleDownIcon />
             </Text>
           </Box>
-          <Box color={"#FCE5D8"} fontSize="18px">
+          <Box color={"#FCE5D8"} fontSize="18px" p="10px 0">
             Choose your billing:
           </Box>
         </Flex>
         <Flex
-          maxW={"29.5%"}
+          maxW={"72.5%"}
           gridGap="5px"
           height="50px"
           p="3px 0"
@@ -102,6 +107,7 @@ const PricingPlans = () => {
           </Box>
         </Flex>
       </Box>
+      <Plans />
     </Box>
   );
 };
