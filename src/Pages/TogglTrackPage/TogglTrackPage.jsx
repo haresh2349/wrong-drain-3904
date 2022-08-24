@@ -8,7 +8,7 @@ import {
   BsFillTagFill,
   BsFillCheckCircleFill,
   BsCurrencyDollar,
-  BsFillPlayCircleFill
+  BsFillPlayCircleFill,
 } from "react-icons/bs";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import {
@@ -22,7 +22,7 @@ import { HiUsers } from "react-icons/hi";
 import { FaFolderMinus } from "react-icons/fa";
 import { GiPlug } from "react-icons/gi";
 import { CgOrganisation } from "react-icons/cg";
-import {AiFillPlusCircle} from "react-icons/ai"
+import { AiFillPlusCircle } from "react-icons/ai";
 
 const TogglTrackPage = () => {
   return (
@@ -191,25 +191,19 @@ const TogglTrackPage = () => {
 
       <div className={styles.right_container}>
         <div className={styles.right_topsection}>
-
-<div className={styles.right_input_div}>
-<input type="text" placeholder="What are you working on?" />
-
-</div>
-<div>+ Create a Project</div>
-<BsFillTagFill/>
-<BsCurrencyDollar/>
-<div> 0: 00 :00</div>
-<BsFillPlayCircleFill className={styles.play_icon}/>
-<div>
-    <BsFillPlayCircleFill className={styles.second_play_icon}/>
-    <AiFillPlusCircle className={styles.plus_icon}/>
-</div>
-
-
-
-
-      </div>
+          <div className={styles.right_input_div}>
+            <input type="text" placeholder="What are you working on?" />
+          </div>
+          <div>+ Create a Project</div>
+          <BsFillTagFill />
+          <BsCurrencyDollar />
+          <div> 0: 00 :00</div>
+          <BsFillPlayCircleFill className={styles.play_icon} />
+          <div>
+            <BsFillPlayCircleFill className={styles.second_play_icon} />
+            <AiFillPlusCircle className={styles.plus_icon} />
+          </div>
+        </div>
       </div>
     </div>
   );
