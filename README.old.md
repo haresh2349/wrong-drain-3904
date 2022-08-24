@@ -1,6 +1,7 @@
 # wrong-drain-3904
 follow this steps
-1 - on each day create new branch -- git branch <branch name> 
+1 - on each day create new branch -- git branch <branch name>
+*
   branch is created
 check : git branch --list
 it will display your branches
