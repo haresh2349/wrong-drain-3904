@@ -71,8 +71,14 @@ const PricingPlans = () => {
             left={!hoverSlider ? "1" : "50%"}
             right={!hoverSlider ? "50%" : "99%"}
             bg={hoverSlider ? "rgb(86, 66, 96)" : "#E57CD8"}
-            _hover={{ bg: "rgb(86, 66, 96)" }}
-            onMouseOut={() => setHoverSlider(false)}
+            transition={"all 0.5s ease-in"}
+            _hover={{
+              bg: "rgb(86, 66, 96)",
+              //   transform: { hoverSlider } && "translateX(50%)",
+            }}
+            onMouseOut={() => {
+              setHoverSlider(false);
+            }}
           >
             {!hoverSlider ? "Annual" : "Monthly"}
           </Box>
