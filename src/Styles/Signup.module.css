@@ -1,0 +1,108 @@
+.signupheading{
+    background-color:rgb(65, 42, 76);
+    color: white;
+}
+
+.heads1top{
+    margin: auto;
+    font-size: 54.64px;
+    line-height: 60.104px;
+    margin-bottom: 20px;
+    color: #fff3ed;
+    font-family: 
+    "GT Haptik Medium", sans-serif;
+    font-weight:650;
+    }
+    .paras1top{
+    font-size: 20px;
+    line-height: 30px;
+    font-family: Inter, sans-serif;
+    text-align: justify;
+    color: #fce5d8;
+    margin-left: 180px;
+    padding-bottom: 10px;
+    }
+
+    .flexdiv {
+        display: flex;
+        margin:auto;
+        padding-top: 30px;
+        background-color:rgb(65, 42, 76);
+    }
+    .main{
+    
+        background-color:rgb(44,19,56);
+        width: 50%;
+        margin: auto;
+        padding:4%;
+        height:600px;
+        margin-top: -60px;
+        z-index: 1;
+        opacity:1;
+    }
+    .top{
+        width:100%;
+        margin:auto;
+        display:flex;
+        gap:20px;
+        margin-top: 5%;
+    }
+    .flexdiv>div:nth-child(1)
+    {
+        margin: auto;
+        margin-left: 180px;
+    }
+    .flexdiv>div:nth-child(2)
+    {
+    margin-right: 200px;
+    }
+    .google{
+        background-color: white;
+        width:50%;
+        margin-left:10px;
+        margin:auto;
+        color: black;
+        font-size: 18px;
+        justify-content: center;
+        height: 50px;
+        border-radius: 25px;
+        display: flex;
+        gap: 10px;
+        text-align:center;
+        padding:10px;
+    }
+    .googleimg{
+        width:20px;
+        height: 20px;
+       
+    margin-top: 5px;
+      
+        text-justify: justify;
+       
+    }
+    .h3inline {
+        overflow: hidden;
+        text-align: center;
+        color: white;
+     
+    }
+    .h3inline:before, .h3inline:after {
+        background-color: rgb(240, 230, 230);
+        content: "";
+        display: inline-block;
+        height: 1px;
+        position: relative;
+        vertical-align: middle;
+        width: 50%;
+       
+    }
+    .h3inline:before {
+        right: 0.5em;
+        margin-left: -50%;
+    }
+    .h3inline:after {
+        left: 0.5em;
+        margin-right: -50%; 
+    }
+
+
