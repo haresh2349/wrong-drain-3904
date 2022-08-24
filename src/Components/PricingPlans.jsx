@@ -1,7 +1,9 @@
 import { Box, Flex, Heading, HStack, Text, VStack } from "@chakra-ui/react";
 import React, { useState } from "react";
-
+import { TriangleDownIcon } from "@chakra-ui/icons";
 const PricingPlans = () => {
+  const [annactive, setAnnActive] = useState(true);
+  const [Monactive, setMonActive] = useState(false);
   const [monHover, setMonHover] = useState(false);
   const [annHover, setAnnHover] = useState(false);
   const [hoverSlider, setHoverSlider] = useState(false);
@@ -17,11 +19,29 @@ const PricingPlans = () => {
         </Text>
       </Box>
       <Box>
-        <Flex justifyContent={"center"}>
-          <Box color={"black"} bg="#FCE5D8" p={"5px 10px"}>
-            Save 10%
+        <Flex
+          maxW={"40%"}
+          m="auto"
+          justifyContent={"center"}
+          position="relative"
+        >
+          <Box
+            color={"black"}
+            bg="#FCE5D8"
+            p={"0px 30px"}
+            position="absolute"
+            left="0px"
+            bottom="-20px"
+            transform="rotate(-25deg)"
+          >
+            <Text>Save 10%</Text>
+            <Text position="absolute" left="40%" bottom="-14px" color="#FCE5D8">
+              <TriangleDownIcon />
+            </Text>
           </Box>
-          <Box color={"#FCE5D8"}>Choose your billing:</Box>
+          <Box color={"#FCE5D8"} fontSize="18px">
+            Choose your billing:
+          </Box>
         </Flex>
         <Flex
           maxW={"29.5%"}
@@ -48,14 +68,12 @@ const PricingPlans = () => {
           </Box>
           <Box
             w="180px"
-            display={hoverSlider ? "none" : "block"}
             textAlign={"center"}
             color={"black"}
             p="10px 20px"
             borderRadius="25px"
             position={"absolute"}
             left="50%"
-            zIndex="1"
             bg="#FFFF"
             onMouseOver={() => setHoverSlider(true)}
           >
@@ -74,11 +92,11 @@ const PricingPlans = () => {
             transition={"all 0.5s ease-in"}
             _hover={{
               bg: "rgb(86, 66, 96)",
-              //   transform: { hoverSlider } && "translateX(50%)",
             }}
             onMouseOut={() => {
               setHoverSlider(false);
             }}
+            onClick={() => setHoverSlider(false)}
           >
             {!hoverSlider ? "Annual" : "Monthly"}
           </Box>
