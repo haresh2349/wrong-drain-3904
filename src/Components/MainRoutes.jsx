@@ -2,11 +2,11 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 const MainRoutes = () => {
   return (
-    <div>
+    <Routes>
       {/* <Navbar/> */}
-      <Routes>{/* <Route path='/' element={<Home/>}/> */}</Routes>
+      <Route>{/* <Route path='/' element={<Home/>}/> */}</Route>
       {/* <Footer/> */}
-    </div>
+    </Routes>
   );
 };
 
