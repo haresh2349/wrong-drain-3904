@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import {
+  Routes,
+  Route,
+} from "react-router-dom";
+import BigTeam from './why-track/Forbigteams/BigTeam';
+import  Freelancers from './why-track/Forfreelancers/Freelancer'
+import SmallTeam from './why-track/Forsmallteam/SmallTeam';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      
+      <Routes>
+        <Route path="/track/time-tracking-large-teams" element={ <BigTeam/> } />
+
+        <Route path="/track/freelance-time-tracking" element={ <Freelancers/> } />
+
+        <Route path="/track/time-tracking-small-teams" element={ <SmallTeam/> } />
+
+      </Routes>
     </div>
   );
 }
