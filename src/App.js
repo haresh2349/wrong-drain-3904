@@ -1,13 +1,12 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { Box } from "@chakra-ui/react";
-import Pricing from "./Pages/Pricing";
+
+import './App.css';
+import MainRoutes from './Components/MainRoutes';
 
 function App() {
   return (
-    <Box className="App">
-      <Pricing />
-    </Box>
+    <div>
+      <MainRoutes/>
+    </div>
   );
 }
 
