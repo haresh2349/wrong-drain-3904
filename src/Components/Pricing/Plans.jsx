@@ -9,7 +9,7 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { CheckIcon, TriangleDownIcon } from "@chakra-ui/icons";
 const Plans = () => {
   const free = [
@@ -160,10 +160,14 @@ const Plans = () => {
       text: "Volume discounts for large teams on our annual plan",
     },
   ];
+  const [button1Hovered, setButton1Hovered] = useState(false);
+  const [button2Hovered, setButton2Hovered] = useState(false);
+  const [button3Hovered, setButton3Hovered] = useState(false);
+  const [button4Hovered, setButton4Hovered] = useState(false);
   return (
-    <Box maxW="1260px" m="auto">
-      <Grid w="85%" m="auto" gridTemplateColumns={"repeat(4,24%)"} gap="10px">
-        <GridItem bg="#412A4C" p="20px" mt="50px">
+    <Box w="100%" m="auto">
+      <Grid w="80%" m="auto" gridTemplateColumns={"repeat(4,24%)"} gap="10px">
+        <GridItem position="relative" bg="#412A4C" p="20px" mt="50px">
           <Heading size={"md"} color="#FFFF" mb="15px">
             Free
           </Heading>
@@ -183,11 +187,11 @@ const Plans = () => {
               Free for up to 5 users.
             </Text>
           </HStack>
-          <Flex flexDirection={"column"} gridGap="15px">
+          <Flex flexDirection={"column"} gridGap="15px" mb="65px">
             {free.map((el) => {
               return (
                 <HStack key={el.id}>
-                  <CheckIcon color={"#E57CD8"} fontSize="20px" />
+                  <CheckIcon color={"#E57CD8"} fontSize="18px" />
                   <Heading size={"xs"} color="#FFFF">
                     {el.text}
                   </Heading>
@@ -195,8 +199,9 @@ const Plans = () => {
               );
             })}
           </Flex>
-          <Box>
+          <Box position="absolute" bottom="10px" left="20px" right="20px">
             <Box
+              display={button1Hovered ? "block" : "none"}
               bg="#E57CD8"
               p="20px"
               textAlign="center"
@@ -221,15 +226,18 @@ const Plans = () => {
                 p="20px 0"
                 size="ld"
                 borderRadius="30px"
-                bg="#564260"
+                bg="#2C1338"
                 color="#FFFF"
+                _hover={{ bg: "#564260" }}
+                onMouseOver={() => setButton1Hovered(true)}
+                onMouseOut={() => setButton1Hovered(false)}
               >
                 Get Started
               </Button>
             </Box>
           </Box>
         </GridItem>
-        <GridItem bg="#412A4C" p="20px" mt="50px">
+        <GridItem position="relative" bg="#412A4C" p="20px" mt="50px">
           <Heading color="#FFFF" size="md" mb="15px">
             Starter
           </Heading>
@@ -253,16 +261,17 @@ const Plans = () => {
             {starter.map((el) => {
               return (
                 <HStack key={el.id}>
-                  <CheckIcon color={"#E57CD8"} fontSize="20px" />
-                  <Heading size={"sm"} color="#FFFF">
+                  <CheckIcon color={"#E57CD8"} fontSize="18px" />
+                  <Heading size={"xs"} color="#FFFF">
                     {el.text}
                   </Heading>
                 </HStack>
               );
             })}
           </Flex>
-          <Box>
+          <Box position="absolute" bottom="10px" left="20px" right="20px">
             <Box
+              display={button2Hovered ? "block" : "none"}
               bg="#E57CD8"
               p="20px"
               textAlign="center"
@@ -271,8 +280,8 @@ const Plans = () => {
               mt="20px"
             >
               <Text>
-                Free plans comes with free access to Premium features for 30
-                days-- no strings attached!
+                Starter plans come with free access to Premium features for 30
+                days—no strings attached!
               </Text>
               <TriangleDownIcon
                 position="absolute"
@@ -287,15 +296,18 @@ const Plans = () => {
                 p="20px 0"
                 size="ld"
                 borderRadius="30px"
-                bg="#564260"
                 color="#FFFF"
+                bg="#2C1338"
+                _hover={{ bg: "#564260" }}
+                onMouseOver={() => setButton2Hovered(true)}
+                onMouseOut={() => setButton2Hovered(false)}
               >
                 Get Started
               </Button>
             </Box>
           </Box>
         </GridItem>
-        <GridItem bg="#E57CD8">
+        <GridItem position="relative" bg="#E57CD8">
           <Text
             color="#FCE5D8"
             textAlign="center"
@@ -327,17 +339,51 @@ const Plans = () => {
               {premium.map((el) => {
                 return (
                   <HStack key={el.id}>
-                    <CheckIcon color={"#E57CD8"} fontSize="20px" />
-                    <Heading size={"sm"} color="black">
+                    <CheckIcon color={"#E57CD8"} fontSize="18px" />
+                    <Heading size={"xs"} color="black">
                       {el.text}
                     </Heading>
                   </HStack>
                 );
               })}
             </Flex>
+            <Box position="absolute" bottom="10px" left="20px" right="20px">
+              <Box
+                display={button3Hovered ? "block" : "none"}
+                bg="#E57CD8"
+                p="20px"
+                textAlign="center"
+                position="relative"
+                mb="10px"
+                mt="20px"
+              >
+                <Text>The first 30 days are free!</Text>
+                <TriangleDownIcon
+                  position="absolute"
+                  bottom="-12px"
+                  left="45%"
+                  color="#E57CD8"
+                />
+              </Box>
+              <Box>
+                <Button
+                  w="100%"
+                  p="20px 0"
+                  size="ld"
+                  borderRadius="30px"
+                  color="#FFFF"
+                  bg="#2C1338"
+                  _hover={{ bg: "#564260" }}
+                  onMouseOver={() => setButton3Hovered(true)}
+                  onMouseOut={() => setButton3Hovered(false)}
+                >
+                  Get Started
+                </Button>
+              </Box>
+            </Box>
           </Box>
         </GridItem>
-        <GridItem bg="#412A4C" p="20px" mt="50px">
+        <GridItem position="relative" bg="#412A4C" p="20px" mt="50px">
           <Heading color="#FFFF" size="md" mb="15px">
             Enterprise
           </Heading>
@@ -360,14 +406,51 @@ const Plans = () => {
             {enterPrise.map((el) => {
               return (
                 <HStack key={el.id}>
-                  <CheckIcon color={"#E57CD8"} fontSize="20px" />
-                  <Heading size={"sm"} color="#FFFF">
+                  <CheckIcon color={"#E57CD8"} fontSize="18px" />
+                  <Heading size={"xs"} color="#FFFF">
                     {el.text}
                   </Heading>
                 </HStack>
               );
             })}
           </Flex>
+          <Box position="absolute" bottom="10px" left="20px" right="20px">
+            <Box
+              display={button4Hovered ? "block" : "none"}
+              bg="#E57CD8"
+              p="20px"
+              textAlign="center"
+              position="relative"
+              mb="10px"
+              mt="20px"
+            >
+              <Text>
+                Free plans comes with free access to Premium features for 30
+                days-- no strings attached!
+              </Text>
+              <TriangleDownIcon
+                position="absolute"
+                bottom="-12px"
+                left="45%"
+                color="#E57CD8"
+              />
+            </Box>
+            <Box>
+              <Button
+                w="100%"
+                p="20px 0"
+                size="ld"
+                borderRadius="30px"
+                color="#FFFF"
+                bg="#2C1338"
+                _hover={{ bg: "#564260" }}
+                onMouseOver={() => setButton4Hovered(true)}
+                onMouseOut={() => setButton4Hovered(false)}
+              >
+                Get Started
+              </Button>
+            </Box>
+          </Box>
         </GridItem>
       </Grid>
     </Box>
