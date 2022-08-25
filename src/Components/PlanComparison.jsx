@@ -117,6 +117,59 @@ const PlanComparison = () => {
       title: "Time entry audits",
     },
   ];
+  const projectManagement = [
+    {
+      id: 1,
+      title: "Unlimited projects and clients",
+    },
+    {
+      id: 2,
+      title: "Pre-populated project templates",
+    },
+    {
+      id: 3,
+      title: "Team access level managementTasks (sub-projects)",
+    },
+    {
+      id: 4,
+      title: "Project time estimates and alerts",
+    },
+    {
+      id: 5,
+      title: "Recurring projects",
+    },
+    {
+      id: 6,
+      title: "Project forecasts and analysis",
+    },
+  ];
+  const integration = [
+    {
+      id: 1,
+      title:
+        "Track time in 100+ popular tools with the Toggl Track browser extensionUnlimited projects and clients",
+    },
+    {
+      id: 2,
+      title: "API (Toggl Track API + Reports API)",
+    },
+    {
+      id: 3,
+      title: "View Outlook and Google Calendar events in Toggl Track",
+    },
+    {
+      id: 4,
+      title: "View tracked time in your calendar",
+    },
+    {
+      id: 5,
+      title: "Jira Sync",
+    },
+    {
+      id: 6,
+      title: "Salesforce Sync",
+    },
+  ];
 
   return (
     <Box w="80%" m="auto">
@@ -360,6 +413,114 @@ const PlanComparison = () => {
                 p="12px"
               >
                 {item.id <= 7 && <CheckIcon fontSize="n0px" color="#412A4C" />}
+              </Box>
+              <Box
+                w="25%"
+                position="relative "
+                textAlign="center"
+                bg="#FCE5D8"
+                p="12px"
+                borderLeft="1px solid #C4BDC7"
+              >
+                <CheckIcon fontSize="n0px" color="#E57CD8" />
+              </Box>
+              <Box
+                w="25%"
+                textAlign="center"
+                borderLeft="1px solid #C4BDC7"
+                p="12px"
+              >
+                <CheckIcon fontSize="n0px" color="#412A4C" />
+              </Box>
+            </Flex>
+          </Flex>
+        );
+      })}
+      <Heading p="15px" bg="#564260" color="#FFF" size="md">
+        Project Management
+      </Heading>
+      {projectManagement.map((item) => {
+        return (
+          <Flex key={item.id} borderBottom="1px solid #C4BDC7" bg="#FFF3ED">
+            <Flex
+              w="40%"
+              justifyContent="space-between"
+              p="10px"
+              alignItems="center"
+            >
+              <Text fontSize="14px">{item.title}</Text>
+              <InfoOutlineIcon />
+            </Flex>
+            <Flex w="60%">
+              <Box
+                w="25%"
+                textAlign="center"
+                borderLeft="1px solid #C4BDC7"
+                p="12px"
+              >
+                {item.id == 1 && <CheckIcon fontSize="n0px" color="#412A4C" />}
+              </Box>
+              <Box
+                w="25%"
+                textAlign="center"
+                borderLeft="1px solid #C4BDC7"
+                p="12px"
+              >
+                {item.id != 6 && <CheckIcon fontSize="n0px" color="#412A4C" />}
+              </Box>
+              <Box
+                w="25%"
+                position="relative "
+                textAlign="center"
+                bg="#FCE5D8"
+                p="12px"
+                borderLeft="1px solid #C4BDC7"
+              >
+                <CheckIcon fontSize="n0px" color="#E57CD8" />
+              </Box>
+              <Box
+                w="25%"
+                textAlign="center"
+                borderLeft="1px solid #C4BDC7"
+                p="12px"
+              >
+                <CheckIcon fontSize="n0px" color="#412A4C" />
+              </Box>
+            </Flex>
+          </Flex>
+        );
+      })}
+      <Heading p="15px" bg="#564260" color="#FFF" size="md">
+        Integrations
+      </Heading>
+      {integration.map((item) => {
+        return (
+          <Flex key={item.id} borderBottom="1px solid #C4BDC7" bg="#FFF3ED">
+            <Flex
+              w="40%"
+              justifyContent="space-between"
+              p="10px"
+              alignItems="center"
+            >
+              <Text fontSize="14px">{item.title}</Text>
+              <InfoOutlineIcon />
+            </Flex>
+            <Flex w="60%">
+              <Box
+                w="25%"
+                textAlign="center"
+                borderLeft="1px solid #C4BDC7"
+                p="12px"
+              >
+                {item.id <= 3 && <CheckIcon fontSize="n0px" color="#412A4C" />}
+              </Box>
+              <Box
+                w="25%"
+                textAlign="center"
+                borderLeft="1px solid #C4BDC7"
+                p="12px"
+              >
+                {item.id <= 4 && <CheckIcon fontSize="n0px" color="#412A4C" />}
               </Box>
               <Box
                 w="25%"
