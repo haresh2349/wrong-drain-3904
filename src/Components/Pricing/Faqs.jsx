@@ -107,7 +107,7 @@ const Faqs = () => {
           </Text>
           . No credit card required.
         </Heading>
-        <HStack justifyContent="space-arround">
+        <HStack justifyContent="space-around">
           <Stack border="1px solid #808080">
             <Input placeholder="Email" border="none" />
           </Stack>

@@ -18,6 +18,7 @@ import React, { useState } from "react";
 import { TriangleDownIcon } from "@chakra-ui/icons";
 import Plans from "./Plans";
 import Faqs from "./Faqs";
+import PlanComparison from "../PlanComparison";
 const PricingPlans = () => {
   const [annactive, setAnnActive] = useState(true);
   const [Monactive, setMonActive] = useState(false);
@@ -235,6 +236,7 @@ const PricingPlans = () => {
         </Box>
       </Box>
       <Faqs />
+      <PlanComparison />
     </Box>
   );
 };
