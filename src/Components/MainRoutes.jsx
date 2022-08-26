@@ -16,5 +16,6 @@ export const MainRoutes = () => {
       <Route path="/track/pricing" element={<Pricing />} />
       <Route path="/track/timer" element={<TogglTrackPage />} />
     </Routes>
+
   );
 };

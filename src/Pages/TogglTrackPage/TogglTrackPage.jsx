@@ -19,7 +19,7 @@ import {
 import { GoPulse } from "react-icons/go";
 import { IoIosFolder, IoIosHelpCircle } from "react-icons/io";
 import { HiUsers } from "react-icons/hi";
-import { FaFolderMinus } from "react-icons/fa";
+import { FaFolderMinus ,FaStopCircle} from "react-icons/fa";
 import { GiPlug } from "react-icons/gi";
 import { CgOrganisation } from "react-icons/cg";
 import { AiFillPlusCircle } from "react-icons/ai";
@@ -306,7 +306,7 @@ const [timer,setTimer]=useState(0)
          <Box onClick={()=>{
           setShow(!show)
         
-          }}>{show ? <div onClick={()=>stopTimer()}>stop</div> :<BsFillPlayCircleFill onClick={()=>startTimer()}className={styles.play_icon}/>}</Box> 
+          }}>{show ? <FaStopCircle className={styles.stop_icon}  onClick={()=>stopTimer()}/> :<BsFillPlayCircleFill onClick={()=>startTimer()}className={styles.play_icon}/>}</Box> 
           <div>
             <BsFillPlayCircleFill className={styles.second_play_icon} />
             <AiFillPlusCircle className={styles.plus_icon} />
