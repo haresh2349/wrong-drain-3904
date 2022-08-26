@@ -28,9 +28,10 @@
         margin:auto;
         padding-top: 30px;
         background-color:rgb(65, 42, 76);
+        padding-bottom: 100px;
     }
-    .main{
-    
+    .mainBox{
+        
         background-color:rgb(44,19,56);
         width: 50%;
         margin: auto;
@@ -40,7 +41,7 @@
         z-index: 1;
         opacity:1;
     }
-    .top{
+    .topBox{
         width:100%;
         margin:auto;
         display:flex;
@@ -56,7 +57,7 @@
     {
     margin-right: 200px;
     }
-    .google{
+    .googleBtn{
         background-color: white;
         width:50%;
         margin-left:10px;
@@ -71,15 +72,13 @@
         text-align:center;
         padding:10px;
     }
-    .googleimg{
+    .googleImg{
         width:20px;
-        height: 20px;
-       
-    margin-top: 5px;
-      
+        height: 20px; 
+        margin-top: 5px;
         text-justify: justify;
-       
     }
+    
     .h3inline {
         overflow: hidden;
         text-align: center;
@@ -105,4 +104,57 @@
         margin-right: -50%; 
     }
 
+    .formBox > input {
+        background: transparent;
+        border: 2px solid rgb(171,160,175);
+        height: 50px;
+        width: 100%;
+       margin-top: 5px;
+       margin-bottom: 30px;
+        padding-left: 15px;
+        caret-color: #2C1338;
+        font-family: 'Inter',sans-serif;
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 1.28;
+        color: #FCE5D8;
+     }
+
+     .formBox > label{
+        color:white;
+        font-size:15px;
+        margin-right: 450px;
+        /* justify-items: left; */
+        margin-top: 20px;
+    
+     }
+
+    .submitBtn{
+        font-family: 'GT Haptik Medium',sans-serif;
+        font-size: 1rem;
+        padding: 14px 50px;
+        background-color: #E57CD8;
+        color: #FFF;
+        text-align: center;
+        width:100%;
+        border-radius: 25px;
+       
+        box-sizing: border-box; 
+        font-family: 'Inter',sans-serif;
+        font-weight: 400;
+        font-size: 0.875rem;
+        line-height: 1.28;
+        
+    }
+    .submitBtn:hover{
+        background-color: rgba(65,42,76,255);
+    }
+    
+    .textAftersubmit{
+        color: white;
+        text-align: justify;
+        margin-top: 30px;
+        font-size: 10px;
+        padding-bottom: 20px;
+      }
 

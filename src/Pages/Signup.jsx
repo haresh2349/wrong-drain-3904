@@ -2,6 +2,11 @@ import React from "react";
 import styles from "../Styles/Signup.module.css";
 
 const Signup = () => {
+
+  const handleChangeData = () => {
+      
+  }
+
   return (
     <div style={{ textAlign: "center" }}>
       <div className={styles.signupheading}>
@@ -27,21 +32,21 @@ const Signup = () => {
         </p>
       </div>
       <div className={styles.flexdiv}>
-        <div className={styles.main}>
-          <div className={styles.top}>
-            <button className={styles.google}>
+        <div className={styles.mainBox}>
+          <div className={styles.topBox}>
+            <button className={styles.googleBtn}>
               {" "}
               <img
-                className={styles.googleimg}
+                className={styles.googleImg}
                 src="https://img.icons8.com/color/452/google-logo.png"
                 alt="google"
               />
               Signup via Google
             </button>
-            <button className={styles.google}>
+            <button className={styles.googleBtn}>
               {" "}
               <img
-                className={styles.googleimg}
+                className={styles.googleImg}
                 src="https://cdn.iconscout.com/icon/free/png-256/apple-853-675472.png"
                 alt="apple"
               />{" "}
@@ -52,7 +57,46 @@ const Signup = () => {
           <br />
           <h3 className={styles.h3inline}>OR</h3>
           <br />
+          <form>
+            <div className={styles.formBox}>
+              <label>Email </label>
+              <br />
+              <input
+                type="text"
+                name="email"
+                onChange={handleChangeData}
+                placeholder="Email"
+              />{" "}
+              <br />
+              <label>Password</label>
+              <br />
+              <input
+                type="password"
+                name="password"
+                onChange={handleChangeData}
+                placeholder="Password"
+              />
+            </div>
+            <br />
+            <div>
+              <button type="submit" className={styles.submitBtn}>
+                sign up via email
+              </button>
+              <p className={styles.textAftersubmit}>
+                By signing up, you agree to our terms of service, privacy policy
+                and to receiving marketing communication from Toggl Track. You
+                can opt out anytime.
+              </p>
+            </div>
+          </form>
         </div>
+        <div>
+          <img src="https://i.postimg.cc/MZryZZDX/signtext.png" alt="" />
+        </div>
+      </div>
+      <div style={{border:"1px solid black", width:"100%", height:"60px", backgroundColor:"#E57CD8", display:"flex"}}>
+         <p style={{textAlign:"left", marginLeft:"60px", marginTop:"15px"}}>© 2022 Toggl. All rights reserved.</p>
+         <p style={{textAlign:"right", marginLeft:"1000px", marginTop:"15px"}}>Legal Terms</p>
       </div>
     </div>
   );
