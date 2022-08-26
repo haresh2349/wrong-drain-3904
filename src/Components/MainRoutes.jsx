@@ -9,7 +9,7 @@ import TogglTrackPage from "../Pages/TogglTrackPage/TogglTrackPage";
 
 import Login from "../Pages/Login";
 import { auth } from "../Firebase";
-// import Navbar from "../Pages/Navbar";
+import Navbar from "../Pages/Navbar";
 
 export const MainRoutes = () => {
   const [userMail, setUserEmail] = useState("")
