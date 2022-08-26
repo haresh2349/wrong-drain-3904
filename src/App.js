@@ -9,8 +9,8 @@ import Signup from "./Pages/Signup";
 function App() {
   return (
     <Box className="App">
-      {/* <MainRoutes /> */}
-      <Signup/>
+      <MainRoutes />
+      {/* <Signup/> */}
     </Box>
   );
 }
