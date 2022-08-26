@@ -5,6 +5,8 @@
 
 .heads1top{
     margin: auto;
+    text-align: left;
+    margin-left: 180px;
     font-size: 54.64px;
     line-height: 60.104px;
     margin-bottom: 20px;
@@ -78,7 +80,7 @@
         margin-top: 5px;
         text-justify: justify;
     }
-    
+
     .h3inline {
         overflow: hidden;
         text-align: center;

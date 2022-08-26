@@ -27,7 +27,7 @@ const Signup = () => {
             href="/signup"
             style={{ color: "rgb(229, 124, 216)", paddingLeft: "20px" }}
           >
-            Log in here.
+           <a href="/login">Log in here.</a> 
           </a>
         </p>
       </div>
