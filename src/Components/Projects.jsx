@@ -1,10 +1,24 @@
-import { Box, Button, Flex, Heading, Select, Text } from "@chakra-ui/react";
+import { CloseIcon } from "@chakra-ui/icons";
+import {
+  Box,
+  Button,
+  Flex,
+  FormControl,
+  FormHelperText,
+  FormLabel,
+  Heading,
+  Image,
+  Input,
+  Select,
+  Text,
+} from "@chakra-ui/react";
 import React from "react";
 import { FaUser } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Projects = () => {
   return (
-    <Box w="80%">
+    <Box w="80%" position="relative" height="100vh">
       <Flex justifyContent="space-between" p="15px">
         <Heading size="md">Projects</Heading>
         <Button bg="#DD6FD1" color="#FFFF" fontSize="17px">
@@ -98,6 +112,66 @@ const Projects = () => {
           </Flex>
         </Flex>
       </Flex>
+      <Box bg="#FEF9F7" position="relative" height="600px">
+        <Flex
+          w="50%"
+          m="auto"
+          position="absolute"
+          top="0"
+          left="0"
+          right="0"
+          bottom="0"
+          flexDirection="column"
+          textAlign="center"
+          bg="#FFFF"
+          p="30px"
+          height="500px"
+          borderRadius="12px"
+          boxShadow="rgba(149, 157, 165, 0.2) 0px 8px 24px"
+        >
+          <Box>
+            <Image
+              w="50%"
+              m="auto"
+              src="https://web-assets.toggl.com/app/assets/images/7026023e2c995e75.png"
+            />
+          </Box>
+          <Heading size="md">Create a Project and get organized!</Heading>
+          <Text>
+            Projects are the backbones of time entry categorization in your
+            workspace.{" "}
+          </Text>
+          <Button w="20%" m="auto" bg="#DD6FD1" color="#FFFF">
+            Create one
+          </Button>
+          <Link to="#">Learn more</Link>
+        </Flex>
+      </Box>
+      <Box
+        w="30%"
+        m="auto"
+        position="absolute"
+        top="0"
+        bottom="0"
+        left="0"
+        right="0"
+        height="300px"
+      >
+        <Flex justifyContent="space-between" p="10px" alignItems="center">
+          <Text>Create a new project</Text>
+          <CloseIcon />
+        </Flex>
+        <FormControl>
+          <FormLabel>Name</FormLabel>
+          <Input type="email" placeholder="Project name" />
+          <FormLabel>Cleint</FormLabel>
+          <Input type="email" placeholder="Cleint name" />
+
+          <Button w="100%" bg="#DD6FD1" m="20px 0">
+            Create project
+          </Button>
+        </FormControl>
+      </Box>
     </Box>
   );
 };
