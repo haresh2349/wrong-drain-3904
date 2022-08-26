@@ -6,11 +6,13 @@ import SmallTeam from "../why-track/Forsmallteam/SmallTeam";
 import Pricing from "../Pages/Pricing";
 import Signup from "../Pages/Signup";
 import TogglTrackPage from "../Pages/TogglTrackPage/TogglTrackPage";
+import Login from "../Pages/Login";
 
 export const MainRoutes = () => {
   return (
     <Routes>
       <Route path="/track/signup" element={<Signup />} />
+      <Route path="/track/login" element={<Login />} />
       <Route path="/track/freelance-time-tracking" element={<Freelancers />} />
       <Route path="/track/time-tracking-small-teams" element={<SmallTeam />} />
       <Route path="/track/time-tracking-large-teams" element={<BigTeam />} />
