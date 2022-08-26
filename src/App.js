@@ -5,9 +5,7 @@ import { MainRoutes } from "./Components/MainRoutes";
 function App() {
   return (
     <Box className="App">
-
       <MainRoutes />
-
     </Box>
   );
 }
