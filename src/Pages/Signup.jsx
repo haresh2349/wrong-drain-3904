@@ -1,10 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "../Styles/Signup.module.css";
+import {createUserWithEmailAndPassword} from "firebase/auth";
+import { updateProfile } from "firebase/auth";
+import { auth } from "../Firebase";
+import { Link, useNavigate } from "react-router-dom";
 
 const Signup = () => {
+const navigate = useNavigate();
+  const [value, setValue] = useState({
+       email : "",
+       password : ""
+  })
+  const [errorMsg, setErrorMsg] = useState("");
+  const [submitButtonDisable, setSubmitButtonDisable] = useState(false)
 
-  const handleChangeData = () => {
-      
+  const handleFormSubmit = (e) => {
+      e.preventDefault()
+      if(!value.email || !value.password){
+        setErrorMsg("Required");
+        return;
+      }else{
+        setErrorMsg("")
+      }
+      setSubmitButtonDisable(true);
+
+      createUserWithEmailAndPassword(auth, value.email, value.password)
+      .then((r)=>{
+        setSubmitButtonDisable(false);
+        console.log(r)
+        const user = r.user
+        updateProfile(user, {
+          displayName : value.email
+        })
+        // console.log(user);
+        navigate("/")
+
+      }).catch((err)=>{
+        setSubmitButtonDisable(false);
+        setErrorMsg(err.message)
+        console.log(err);
+      })
+      // console.log(value)
   }
 
   return (
@@ -27,7 +63,7 @@ const Signup = () => {
             href="/signup"
             style={{ color: "rgb(229, 124, 216)", paddingLeft: "20px" }}
           >
-           <a href="/login">Log in here.</a> 
+           Log in here.
           </a>
         </p>
       </div>
@@ -57,29 +93,31 @@ const Signup = () => {
           <br />
           <h3 className={styles.h3inline}>OR</h3>
           <br />
-          <form>
+          <form onSubmit={handleFormSubmit}>
             <div className={styles.formBox}>
               <label>Email </label>
               <br />
               <input
                 type="text"
                 name="email"
-                onChange={handleChangeData}
+                onChange={(e) =>setValue((prev) => ({...prev, email : e.target.value}))}
                 placeholder="Email"
-              />{" "}
-              <br />
+              />
+              <p style={{color:"#E87200", textAlign:"left"}}>{errorMsg}</p>
+              <br/>
               <label>Password</label>
               <br />
               <input
                 type="password"
                 name="password"
-                onChange={handleChangeData}
+                onChange={(e) =>setValue((prev) => ({...prev, password : e.target.value}))}
                 placeholder="Password"
               />
             </div>
-            <br />
+            <p style={{color:"#E87200", textAlign:"left"}}>{errorMsg}</p>
+            <br/>
             <div>
-              <button type="submit" className={styles.submitBtn}>
+              <button type="submit" disabled={submitButtonDisable} className={styles.submitBtn}>
                 sign up via email
               </button>
               <p className={styles.textAftersubmit}>

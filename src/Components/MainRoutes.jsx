@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import BigTeam from "../why-track/Forbigteams/BigTeam";
 import Freelancers from "../why-track/Forfreelancers/Freelancer";
@@ -6,10 +6,26 @@ import SmallTeam from "../why-track/Forsmallteam/SmallTeam";
 import Pricing from "../Pages/Pricing";
 import Signup from "../Pages/Signup";
 import TogglTrackPage from "../Pages/TogglTrackPage/TogglTrackPage";
+
 import Login from "../Pages/Login";
+import { auth } from "../Firebase";
+// import Navbar from "../Pages/Navbar";
 
 export const MainRoutes = () => {
+  const [userMail, setUserEmail] = useState("")
+
+  useEffect(() => {
+      auth.onAuthStateChanged((user)=>{
+        if(user) {
+          setUserEmail(user.displayName)
+        }else{
+          setUserEmail("");
+        }
+      })
+  },[])
+
   return (
+
     <Routes>
       <Route path="/track/signup" element={<Signup />} />
       <Route path="/track/login" element={<Login />} />
@@ -20,4 +36,5 @@ export const MainRoutes = () => {
       <Route path="/track/timer" element={<TogglTrackPage />} />
     </Routes>
   );
+
 };
