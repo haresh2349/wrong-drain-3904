@@ -8,8 +8,7 @@ import Signup from "../Pages/Signup";
 import TogglTrackPage from "../Pages/TogglTrackPage/TogglTrackPage";
 const MainRoutes = () => {
   return (
-    <Routes>
-      {/* <Navbar/> */}
+    
 
       <Routes>
         
@@ -22,8 +21,7 @@ const MainRoutes = () => {
        
       </Routes>
 
-      {/* <Footer/> */}
-    </Routes>
+ 
   );
 };
 
