@@ -11,6 +11,7 @@ function App() {
     <Box className="App">
       {/* <MainRoutes /> */}
       <Signup/>
+  
     </Box>
   );
 }
