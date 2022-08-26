@@ -5,9 +5,9 @@ import Freelancers from "../why-track/Forfreelancers/Freelancer";
 import SmallTeam from "../why-track/Forsmallteam/SmallTeam";
 import Pricing from "../Pages/Pricing";
 import Signup from "../Pages/Signup";
+import TogglTrackPage from "../Pages/TogglTrackPage/TogglTrackPage";
 
 export const MainRoutes = () => {
-
   return (
     <Routes>
       <Route path="/track/signup" element={<Signup />} />
@@ -17,6 +17,5 @@ export const MainRoutes = () => {
       <Route path="/track/pricing" element={<Pricing />} />
       <Route path="/track/timer" element={<TogglTrackPage />} />
     </Routes>
-
   );
 };
