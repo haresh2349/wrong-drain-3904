@@ -1,5 +1,5 @@
-import { Button } from "@chakra-ui/react";
-import React from "react";
+import { Box, Button, Input } from "@chakra-ui/react";
+import React, { useRef } from "react";
 import styles from "./togglTrackPage.module.css";
 import {
   BsBellFill,
@@ -19,12 +19,75 @@ import {
 import { GoPulse } from "react-icons/go";
 import { IoIosFolder, IoIosHelpCircle } from "react-icons/io";
 import { HiUsers } from "react-icons/hi";
-import { FaFolderMinus } from "react-icons/fa";
+import { FaFolderMinus, FaStopCircle } from "react-icons/fa";
 import { GiPlug } from "react-icons/gi";
 import { CgOrganisation } from "react-icons/cg";
 import { AiFillPlusCircle } from "react-icons/ai";
+import CalendarTopSection from "../../Components/CalendarTopSection";
+import { useState } from "react";
+
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverFooter,
+  PopoverArrow,
+  PopoverCloseButton,
+  PopoverAnchor,
+} from "@chakra-ui/react";
 
 const TogglTrackPage = () => {
+  const [timer, setTimer] = useState(0);
+  let timerid = useRef(null);
+
+  const date = new Date();
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var ampm = hours >= 12 ? "pm" : "am";
+  hours = hours % 12;
+  hours = hours ? hours : 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? "0" + minutes : minutes;
+  const time = hours + ":" + minutes + ":" + " " + ampm;
+
+  const strTime = hours + ":" + minutes + " " + ampm;
+
+  function msToTime(duration) {
+    var milliseconds = Math.floor((duration % 1000) / 100),
+      seconds = Math.floor((duration / 1000) % 60),
+      minutes = Math.floor((duration / (1000 * 60)) % 60),
+      hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
+
+    hours = hours < 10 ? "0" + hours : hours;
+    minutes = minutes < 10 ? "0" + minutes : minutes;
+    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+    return hours + ": " + minutes + ": " + seconds;
+  }
+
+  const startTimer = () => {
+    if (!timerid.current) {
+      let id = setInterval(() => {
+        setTimer((prev) => prev + 100);
+      }, 100);
+
+      timerid.current = id;
+    }
+  };
+
+  const stopTimer = () => {
+    clearInterval(timerid.current);
+    timerid.current = null;
+    setTimer(0);
+  };
+
+  // const endminutes=date.getMinutes() + 10 + ' ' + ampm;
+  //   // const endTime=hours+ ":" + endminutes
+  // console.log(strTime)
+
+  const [show, setShow] = useState(false);
+
   return (
     <div className={styles.togglTrackPage_main_container}>
       <div className={styles.sideBar_container}>
@@ -197,8 +260,49 @@ const TogglTrackPage = () => {
           <div>+ Create a Project</div>
           <BsFillTagFill />
           <BsCurrencyDollar />
-          <div> 0: 00 :00</div>
-          <BsFillPlayCircleFill className={styles.play_icon} />
+
+          <Popover>
+            <PopoverTrigger>
+              <div className={styles.right_timer}>{msToTime(timer)}</div>
+            </PopoverTrigger>
+
+            <PopoverContent mr="80px" mt="30px">
+              <PopoverHeader>
+                <Box display={"flex"} justifyContent="space-around">
+                  {" "}
+                  <Box>
+                    <Box textAlign={"center"}>Start</Box>
+                    <Box display={"flex"} gap="20px">
+                      <Box>{strTime}</Box>
+                      <Box>Today</Box>
+                    </Box>
+                  </Box>
+                  <Box>End</Box>
+                </Box>
+              </PopoverHeader>
+
+              <CalendarTopSection border="none" />
+            </PopoverContent>
+          </Popover>
+          {/* onClick={()=>setShow(!show)}> 0: 00 :00 {show ? <CalendarTopSection/> :<></>} */}
+
+          <Box
+            onClick={() => {
+              setShow(!show);
+            }}
+          >
+            {show ? (
+              <FaStopCircle
+                className={styles.stop_icon}
+                onClick={() => stopTimer()}
+              />
+            ) : (
+              <BsFillPlayCircleFill
+                onClick={() => startTimer()}
+                className={styles.play_icon}
+              />
+            )}
+          </Box>
           <div>
             <BsFillPlayCircleFill className={styles.second_play_icon} />
             <AiFillPlusCircle className={styles.plus_icon} />
