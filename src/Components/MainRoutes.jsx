@@ -9,7 +9,6 @@ import TogglTrackPage from "../Pages/TogglTrackPage/TogglTrackPage";
 import { auth } from "../Firebase";
 
 export const MainRoutes = () => {
-
   const [userMail, setUserEmail] = useState("")
 
   useEffect(() => {
@@ -21,7 +20,6 @@ export const MainRoutes = () => {
         }
       })
   },[])
-
   return (
     <Routes>
       <Route path="/track/signup" element={<Signup />} />
@@ -31,6 +29,5 @@ export const MainRoutes = () => {
       <Route path="/track/pricing" element={<Pricing />} />
       <Route path="/track/timer" element={<TogglTrackPage />} />
     </Routes>
-
   );
 };
