@@ -7,6 +7,7 @@ import Pricing from "../Pages/Pricing";
 import Signup from "../Pages/Signup";
 import TogglTrackPage from "../Pages/TogglTrackPage/TogglTrackPage";
 import { auth } from "../Firebase";
+import Navbar from "../Pages/Navbar";
 
 export const MainRoutes = () => {
   const [userMail, setUserEmail] = useState("")
@@ -21,13 +22,18 @@ export const MainRoutes = () => {
       })
   },[])
   return (
-    <Routes>
-      <Route path="/track/signup" element={<Signup />} />
-      <Route path="/track/freelance-time-tracking" element={<Freelancers />} />
-      <Route path="/track/time-tracking-small-teams" element={<SmallTeam />} />
-      <Route path="/track/time-tracking-large-teams" element={<BigTeam />} />
-      <Route path="/track/pricing" element={<Pricing />} />
-      <Route path="/track/timer" element={<TogglTrackPage />} />
-    </Routes>
-  );
+    
+    <>
+    <Navbar/>
+<Routes>
+  <Route path="/track/signup" element={<Signup />} />
+  <Route path="/track/freelance-time-tracking" element={<Freelancers />} />
+  <Route path="/track/time-tracking-small-teams" element={<SmallTeam />} />
+  <Route path="/track/time-tracking-large-teams" element={<BigTeam />} />
+  <Route path="/track/pricing" element={<Pricing />} />
+  <Route path="/track/timer" element={<TogglTrackPage />} />
+</Routes>
+  </> 
+    
+  )
 };
