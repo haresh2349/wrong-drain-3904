@@ -12,7 +12,7 @@ Toggl Track tracks time blocks, optionally labeled with a task, a project, and t
 
 <h2>Here are some screen-shots from our website</h2>
 
-add some here
+add screeshot some here
 
 
 
