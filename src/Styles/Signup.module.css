@@ -148,7 +148,7 @@
         line-height: 1.28;
     }
     .submitBtn:disabled {
-       background-color: red !important;
+       background-color: gray !important;
     }
     .submitBtn:hover{
         background-color: rgba(65,42,76,255);

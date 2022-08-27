@@ -70,9 +70,9 @@ p:hover{
    margin-left: 10px;
   }
   .btn{
-    background-color:#2c1338 ;
-    color: aliceblue;
-   background: none;
+    background-color: #2c1338;
+    color: aliceblue; 
+    background: none; 
   }
   .btn:hover{
     color: #E57CD8;
@@ -92,7 +92,7 @@ p:hover{
   .btn2{
     border-radius: 30px;
     padding: 25px 30px 25px 30px;
-    color: #E57CD8;
+    color: #53385f;
   }
   .btn2:hover{
     background-color: #53385f;

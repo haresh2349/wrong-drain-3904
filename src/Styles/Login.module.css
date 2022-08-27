@@ -1,4 +1,4 @@
-.cont {
+.container {
     background-color: rgba(65, 42, 76, 255);
   }
   .wrap {
@@ -17,12 +17,12 @@
     display: none;
   }
   
-  .main {
+  .mainDiv {
     background-color: rgb(44, 19, 56);
     width: 40%;
     margin: auto;
     padding: 4%;
-    height: 580px;
+    height: 600px;
     margin-top: -60px;
     z-index: 1;
     opacity: 1;
@@ -32,7 +32,7 @@
     font-weight: 700;
     border-bottom: 0.5px solid rgb(229, 124, 216);
   }
-  .h2log {
+  .h2login {
     font-family: "GT Haptik Medium", sans-serif;
     margin-top: -900px;
   }
@@ -50,11 +50,12 @@
     background-color: rgb(229, 124, 216);
     color: white;
     margin-bottom: 5%;
+    margin-top: 20px;
   }
   .bottom {
     text-align: center;
   }
-  .h3log {
+  .h3login {
     font-family: "Inter", sans-serif;
     font-weight: 400;
     font-size: 1.125rem;
@@ -65,7 +66,7 @@
     color: rgb(255, 248, 248);
   }
   
-  .btn2log {
+  .loginBtn {
     font-family: "GT Haptik Medium", sans-serif;
     font-size: 1rem;
     padding: 14px 50px;
@@ -74,7 +75,7 @@
     text-align: center;
     width: 100%;
     border-radius: 25px;
-    margin-top: 10px;
+    margin-top: 0px;
     box-sizing: border-box;
     font-family: "Inter", sans-serif;
     font-weight: 400;
@@ -82,10 +83,10 @@
     line-height: 1.28;
   }
   
-  .btn2log:hover {
+  .loginBtn:hover {
     background-color: rgba(65, 42, 76, 255);
   }
-  .google {
+  .googleBtn {
     background-color: white;
     width: 50%;
     margin-left: 10px;
@@ -119,7 +120,7 @@
     line-height: 1.28;
     color: #fce5d8;
   }
-  .top {
+  .topDiv {
     width: 100%;
     margin: auto;
     display: flex;
@@ -127,7 +128,7 @@
     margin-top: 5%;
   }
   
-  .centered {
+  .centerDiv {
     position: absolute;
     top: 50%;
     left: 20%;
@@ -166,7 +167,7 @@
     font-size: 0.875rem;
     line-height: 1.28;
   }
-  .googleimg {
+  .googleImg {
     width: 20px;
     height: 20px;
   

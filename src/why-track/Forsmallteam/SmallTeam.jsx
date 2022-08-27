@@ -167,12 +167,11 @@ const SmallTeam = () => {
 
       <Box bgColor="#fef3ed" >
         <Heading p="3rem" textAlign="center" color="#412a4c" >
-        Toggl Track is trusted by teams of 1 to 10,000
+          Toggl Track is trusted by teams of 1 to 10,000
         </Heading>
         <Text textAlign="center" color="#412a4c" >
-        Our users range from solo flyers to enterprise empires
+          Our users range from solo flyers to enterprise empires
         </Text>
-
         <Box p="3rem">
           <Image m="auto" src="https://public-assets.toggl.com/b/static/9fb3a1186df5584b2b04959828b1dd7f/6b702/small-teams-logos-desktop.avif" />
         </Box>
@@ -196,34 +195,44 @@ const SmallTeam = () => {
 
       <Box bgColor="#412a4c" border="1px solid #412a4c" >
 
-        <Box alignItems='left' bgColor="#ffffff" maxW="60rem" ml="3rem" mr="3rem" >
-          <Heading p="2rem" fontSize="25.6px" color="#2C1338" >
-          "Toggl Track saved Platinum $18,000 by making it possible to see that some client project hours were missing."
-          </Heading>
-          <Text textAlign="center" color="#e57cd8" >Rich Tuckwell-Skuda</Text>
-          <Text textAlign="center" color="#e57cd8" >Platiunm Companies</Text>
 
-        </Box>
+        <Flex justify="flex-start"  >
+          <Box>
+            <Box alignItems='left' bgColor="#ffffff" maxW="60rem" ml="3rem" mr="3rem" >
+              <Heading p="4rem" fontSize="25.6px" color="#2C1338" >
+                "Toggl Track saved Platinum $18,000 by making it possible to see that some client project hours were missing."
+              </Heading>
+              <Text textAlign="center" color="#e57cd8" >Rich Tuckwell-Skuda</Text>
+              <Text textAlign="center" color="#e57cd8" >Platiunm Companies</Text>
+            </Box>
+            <Box maxW="60rem" ml="3rem" mr="3rem" style={{ background: 'linear-gradient(to bottom, #ffffff 50%, #412a4c 50%)' }} >
+              <Image m="auto" maxW="3rem" src="https://public-assets.toggl.space/cd2402f7-2f3f-4b30-bd89-5b4edb39f68d/static/2dd69ca1be41c96dfa96f07976d78ecf/ae292/people-platinum.avif" />
+            </Box>
+          </Box>
+        </Flex>
 
-        <Box maxW="60rem" ml="3rem" mr="3rem" style={{ background: 'linear-gradient(to bottom, #ffffff 50%, #412a4c 50%)' }} >
-          <Image m="auto" maxW="3rem" src="https://public-assets.toggl.space/cd2402f7-2f3f-4b30-bd89-5b4edb39f68d/static/2dd69ca1be41c96dfa96f07976d78ecf/ae292/people-platinum.avif" />
-        </Box>
 
 
 
 
-        <Box alignItems='end' bgColor="#ffffff" maxW="60rem" ml="3rem" mt="5rem" mr="3rem" >
-          <Heading p="2rem" fontSize="25.6px" color="#2C1338" >
-          "Toggl Track has been useful in letting use know how much time each task takes. We used to just estimate time for a project/task. Now we actually have data to look through."
-          </Heading>
-          <Text textAlign="center" color="#e57cd8" >Bunker Creative</Text>
-          <Text textAlign="center" color="#e57cd8" >Design agency in Landon</Text>
 
-        </Box>
+        <Flex justify="flex-end" >
+          <Box>
+            <Box alignItems='end' bgColor="#ffffff" maxW="60rem" ml="3rem" mt="5rem" mr="3rem" >
+              <Heading p="4rem" fontSize="25.6px" color="#2C1338" >
+                "Toggl Track has been useful in letting use know how much time each task takes. We used to just estimate time for a project/task. Now we actually have data to look through."
+              </Heading>
+              <Text textAlign="center" color="#e57cd8" >Bunker Creative</Text>
+              <Text textAlign="center" color="#e57cd8" >Design agency in Landon</Text>
+            </Box>
+            <Box maxW="60rem" ml="3rem" mr="3rem" style={{ background: 'linear-gradient(to bottom, #ffffff 50%, #412a4c 50%)' }} >
+              <Image m="auto" maxW="3rem" src="https://public-assets.toggl.space/cd2402f7-2f3f-4b30-bd89-5b4edb39f68d/static/f818217bbc4922cbed0fb25d63be125f/b6d1c/brand-bunkercreative.avif" />
+            </Box>
+          </Box>
+        </Flex>
 
-        <Box maxW="60rem" ml="3rem" mr="3rem"  style={{ background: 'linear-gradient(to bottom, #ffffff 50%, #412a4c 50%)' }} >
-          <Image m="auto" maxW="3rem" src="https://public-assets.toggl.space/cd2402f7-2f3f-4b30-bd89-5b4edb39f68d/static/f818217bbc4922cbed0fb25d63be125f/b6d1c/brand-bunkercreative.avif" />
-        </Box>
+
+
 
 
         <Box height="5rem" />
