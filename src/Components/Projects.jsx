@@ -32,7 +32,7 @@ const Projects = () => {
   const dispatch=useDispatch()
 
   const tasks=useSelector((store)=>store.appReducer.tasks)
-  console.log(tasks)
+  // console.log(tasks)
   
   const { isOpen, onOpen, onClose } = useDisclosure()
   
@@ -40,7 +40,7 @@ const Projects = () => {
     if(tasks.length===0){
       dispatch(getProject())
     }
-  },[tasks.length])
+  },[])
 
 
   return (
@@ -147,7 +147,10 @@ const Projects = () => {
 
 
      <Box>
-      {tasks?.length===0 ? <EmptyProject/> : <ProjectData/>}
+    {
+      tasks!==undefined && tasks.length===0 ? <EmptyProject/> : <ProjectData/>
+    }
+      
      </Box>
 
 

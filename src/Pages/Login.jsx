@@ -3,6 +3,7 @@ import styles from "../Styles/Login.module.css";
 import { Link, useNavigate } from 'react-router-dom';
 import { auth } from '../Firebase';
 import { signInWithEmailAndPassword } from '@firebase/auth';
+import Navbar from './Navbar';
 
 const Login = () => {
 
@@ -45,6 +46,9 @@ const Login = () => {
   }
 
   return (
+    <>
+    <Navbar/>
+    
     <div className={styles.container}>
         <div className={styles.wrap}></div>
         <div className={styles.centerDiv}>
@@ -126,6 +130,7 @@ const Login = () => {
         <br />
         </div>
     </div>
+    </>
   )
 }
 

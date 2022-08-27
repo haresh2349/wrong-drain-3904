@@ -43,9 +43,10 @@ const ProjectData = () => {
 
   const dispatch = useDispatch();
 
-  const tasks = useSelector((store) => store.appReducer.tasks);
+  const {tasks,isLoading} = useSelector((store) => store.appReducer);
 
   //   console.log(tasks);
+
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -99,8 +100,10 @@ const ProjectData = () => {
           </Tr>
         </Thead>
         <Tbody>
-          {tasks.length > 0 &&
-            tasks?.map((item) => (
+         {isLoading && <div>Loading...</div>}
+
+          {  tasks.length > 0 && 
+            tasks.map((item) => (
               <Tr key={item.id}>
                 <Td>{item.title}</Td>
                 <Td>{item.clientName}</Td>
@@ -109,7 +112,7 @@ const ProjectData = () => {
                 <Td>
                   <FaRegEdit onClick={onOpen} />
 
-                  <Modal isOpen={isOpen} onClose={onClose}>
+                  <Modal isOpen={isOpen} onClose={onClose} size="sm" fontSize="12px" >
                     <ModalOverlay />
                     <ModalContent>
                       <ModalHeader>Edit</ModalHeader>
@@ -118,7 +121,8 @@ const ProjectData = () => {
                         <form onSubmit={(e) => handleSubmit(e, item.id)}>
                           <Box>
                             <h3>Name</h3>
-                            <Input
+                            <Input 
+                            mt="10px"
                               placeholder="Enter Name"
                               name="title"
                               value={form.title}
@@ -126,8 +130,9 @@ const ProjectData = () => {
                             />
                           </Box>
                           <Box>
-                            <h3>CLIENT</h3>
+                            <h3 style={{marginTop:"10px"}}>CLIENT</h3>
                             <Input
+                            mt="10px"
                               placeholder="Enter Client"
                               name="clientName"
                               value={form.clientName}
@@ -135,7 +140,7 @@ const ProjectData = () => {
                             />
                           </Box>
 
-                          <Input type="submit" value="Edit" />
+                          <Input mt={"10px"} mb="20px" bg="#d779c6" type="submit" value="Edit" />
                         </form>
                       </ModalBody>
                     </ModalContent>
