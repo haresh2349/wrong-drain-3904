@@ -25,6 +25,7 @@ const navigate = useNavigate();
 
       createUserWithEmailAndPassword(auth, value.email, value.password)
       .then((r)=>{
+
           setSubmitButtonDisable(false);
           const user = r.user
           updateProfile(user, {
