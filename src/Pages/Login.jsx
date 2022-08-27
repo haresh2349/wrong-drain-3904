@@ -1,15 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from "../Styles/Login.module.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { auth } from '../Firebase';
+import { signInWithEmailAndPassword } from '@firebase/auth';
 
 const Login = () => {
 
-    const handleSubmitData = () => {
+  const navigate = useNavigate();
+  const [value, setValue] = useState({
+       email : "",
+       password : ""
+  })
+  const [errorMsg, setErrorMsg] = useState("");
+  const [submitButtonDisable, setSubmitButtonDisable] = useState(false)
 
-    }
-    const handleDataChange = () => {
+  const handleFormSubmit = (e) => {
+      e.preventDefault()
+      if(!value.email || !value.password){
+        setErrorMsg("Email & paaword Required");
+        // return;
+      }
+      else if(!value.email){
+        window.alert("Email Required");
+      }
+      else if(!value.password){
+        window.alert("Password Required");
+      }
+      else{
+        setErrorMsg("")
+      }
+      setSubmitButtonDisable(true);
 
-    }
+      signInWithEmailAndPassword(auth, value.email, value.password)
+      .then((r)=>{
+        setSubmitButtonDisable(false);
+        window.alert("Login Successfully")
+        navigate("/track/timer")
+
+      }).catch((err)=>{
+        setSubmitButtonDisable(false);
+        // setErrorMsg(err.message)
+        // console.log(err);
+      })
+  }
 
   return (
     <div className={styles.cont}>
@@ -19,7 +52,7 @@ const Login = () => {
           <h3 className={styles.h3log}>Let's get Tracking!</h3>
         </div>
         <div className={styles.main}>
-        <form>
+        <form onSubmit={handleFormSubmit}>
             <div className={styles.top}>
             <button type="submit" className={styles.google}>
                 {" "}
@@ -28,7 +61,7 @@ const Login = () => {
                 src="https://img.icons8.com/color/452/google-logo.png"
                 alt="google"
                 />
-                Signup via Google
+                Login via Google
             </button>
             <button className={styles.google}>
                 {" "}
@@ -37,7 +70,7 @@ const Login = () => {
                 src="https://cdn.iconscout.com/icon/free/png-256/apple-853-675472.png"
                 alt="apple"
                 />{" "}
-                Sign up via Apple
+                Login via Apple
             </button>
             </div>
             <br />
@@ -51,7 +84,7 @@ const Login = () => {
                 type="text"
                 placeholder="Email"
                 name="email"
-                onChange={handleDataChange}
+                onChange={(e) =>setValue((prev) => ({...prev, email : e.target.value}))}
             />{" "}
             <br />
             <label>Password</label>
@@ -60,9 +93,10 @@ const Login = () => {
                 type="password"
                 placeholder="Password"
                 name="password"
-                onChange={handleDataChange}
+                onChange={(e) =>setValue((prev) => ({...prev, password : e.target.value}))}
             />
             </div>
+            <p style={{color:"#E87200", textAlign:"left"}}>{errorMsg}</p>
             <div
             style={{
                 textAlign: "right",
@@ -74,7 +108,7 @@ const Login = () => {
             <div>
             <button
                 type="submit"
-                onClick={handleSubmitData}
+                disabled={submitButtonDisable}
                 className={styles.btn2log}
             >
                 Log in

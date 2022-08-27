@@ -17,8 +17,7 @@ const navigate = useNavigate();
   const handleFormSubmit = (e) => {
       e.preventDefault()
       if(!value.email || !value.password){
-        setErrorMsg("Required");
-        return;
+        setErrorMsg("Email & Password both Required");
       }else{
         setErrorMsg("")
       }
@@ -26,19 +25,18 @@ const navigate = useNavigate();
 
       createUserWithEmailAndPassword(auth, value.email, value.password)
       .then((r)=>{
-        setSubmitButtonDisable(false);
-        console.log(r)
-        const user = r.user
-        updateProfile(user, {
-          displayName : value.email
-        })
-        // console.log(user);
-        navigate("/")
-
-      }).catch((err)=>{
-        setSubmitButtonDisable(false);
-        setErrorMsg(err.message)
-        console.log(err);
+          setSubmitButtonDisable(false);
+          const user = r.user
+          updateProfile(user, {
+            displayName : value.email
+          })
+          window.alert("You have Registered successfully")
+          navigate("/track/login")
+      })
+      .catch((err)=>{
+          setSubmitButtonDisable(false);
+          setErrorMsg(err.message)
+    
       })
       // console.log(value)
   }
