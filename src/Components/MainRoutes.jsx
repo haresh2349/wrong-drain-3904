@@ -6,34 +6,37 @@ import SmallTeam from "../why-track/Forsmallteam/SmallTeam";
 import Pricing from "../Pages/Pricing";
 import Signup from "../Pages/Signup";
 import TogglTrackPage from "../Pages/TogglTrackPage/TogglTrackPage";
+import Login from "../Pages/Login";
 import { auth } from "../Firebase";
 import Navbar from "../Pages/Navbar";
 
 export const MainRoutes = () => {
+
   const [userMail, setUserEmail] = useState("")
 
   useEffect(() => {
-      auth.onAuthStateChanged((user)=>{
-        if(user) {
-          setUserEmail(user.displayName)
-        }else{
-          setUserEmail("");
-        }
-      })
-  },[])
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUserEmail(user.displayName)
+      } else {
+        setUserEmail("");
+      }
+    })
+  }, [])
   return (
-    
+
     <>
-    <Navbar/>
-<Routes>
-  <Route path="/track/signup" element={<Signup />} />
-  <Route path="/track/freelance-time-tracking" element={<Freelancers />} />
-  <Route path="/track/time-tracking-small-teams" element={<SmallTeam />} />
-  <Route path="/track/time-tracking-large-teams" element={<BigTeam />} />
-  <Route path="/track/pricing" element={<Pricing />} />
-  <Route path="/track/timer" element={<TogglTrackPage />} />
-</Routes>
-  </> 
-    
+      <Navbar />
+      <Routes>
+        <Route path="/track/signup" element={<Signup />} />
+        <Route path="/track/freelance-time-tracking" element={<Freelancers />} />
+        <Route path="/track/time-tracking-small-teams" element={<SmallTeam />} />
+        <Route path="/track/time-tracking-large-teams" element={<BigTeam />} />
+        <Route path="/track/pricing" element={<Pricing />} />
+        <Route path="/track/timer" element={<TogglTrackPage />} />
+      </Routes>
+    </>
+
   )
+
 };
