@@ -49,7 +49,7 @@ import {
   PopoverHeader,
 } from "@chakra-ui/react";
 import { useSelector ,useDispatch} from "react-redux";
-import { addProject } from "../../Redux/AppReducer/actions";
+import { addProject, getProject } from "../../Redux/AppReducer/actions";
 import SideBar from "../../Components/SideBar";
 
 const TogglTrackPage = () => {
@@ -125,6 +125,7 @@ const dispatch=useDispatch()
     }
 
   dispatch(addProject(payload)).then((r)=>{
+    dispatch(getProject())
     alert("Project Added")
   })
   }

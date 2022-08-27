@@ -1,6 +1,7 @@
 import { Box, Button, Flex, Heading, HStack, Image, Show, SimpleGrid, Spacer, Text } from '@chakra-ui/react'
 import React, { useEffect } from 'react'
 import { Link } from "react-router-dom"
+import Navbar from '../../Pages/Navbar'
 import styles from "../whytrack.module.css"
 const Freelancer = () => {
   useEffect(() => {
@@ -8,6 +9,7 @@ const Freelancer = () => {
   })
   return (
     <Box>
+      <Navbar/>
       <Box>
         <Link to="/track/freelance-time-tracking" >free</Link>
         <br />
@@ -153,7 +155,7 @@ const Freelancer = () => {
           <Heading color="#ffffff" maxW="50%" m="auto" textAlign="center" >5M+ users trust Toggl Track to optimize their time</Heading>
         </Box>
         <Box m="auto" maxW="30rem" mt="4rem" pb="5rem" >
-          <Flex flexWrap="wrap"  >
+          <Flex flexWrap="wrap" flexDirection={"column"} >
             <Box bgColor="#e57cd8" p="1rem" m="auto" color="#ffffff" border="1px solid #e57cd8" borderRadius="2rem" _hover="white" >
               Start tracking for free
             </Box>
@@ -186,10 +188,10 @@ const Freelancer = () => {
                 "Toggl Track is wickedly easy to use. Having graphs and Summaries vs. Detailed Time is the most brilliant feature of the platform. It's magical."
               </Heading>
               <Text textAlign="center" color="#e57cd8" >Chris Harvey</Text>
-              <Text textAlign="center" color="#e57cd8" >Harvey Esquire</Text>
+              <Text textAlign="center" color="#e57cd8" pb="2rem">Harvey Esquire</Text>
             </Box>
             <Box maxW="60rem" ml="3rem" mr="3rem" style={{ background: 'linear-gradient(to bottom, #ffffff 50%, #412a4c 50%)' }} >
-              <Image m="auto" maxW="3rem" src="https://public-assets.toggl.space/cd2402f7-2f3f-4b30-bd89-5b4edb39f68d/static/634fa2fd1623161327d2299bbeb23ff3/81307/people-chris-harvey.avif" />
+              <Image m="auto" maxW="5rem" src="https://public-assets.toggl.space/cd2402f7-2f3f-4b30-bd89-5b4edb39f68d/static/634fa2fd1623161327d2299bbeb23ff3/81307/people-chris-harvey.avif" />
             </Box>
           </Box>
         </Flex>
@@ -203,10 +205,10 @@ const Freelancer = () => {
                 "Started tracking all my hours using Toggl Track and I'm addicted. I think it's going to be life-changing."
               </Heading>
               <Text textAlign="center" color="#e57cd8" >Alexis O'Hanian</Text>
-              <Text textAlign="center" color="#e57cd8" >Founder of Reddit</Text>
+              <Text textAlign="center" color="#e57cd8" pb="2rem">Founder of Reddit</Text>
             </Box>
             <Box maxW="60rem" ml="3rem" mr="3rem" style={{ background: 'linear-gradient(to bottom, #ffffff 50%, #412a4c 50%)' }} >
-              <Image m="auto" maxW="3rem" src="https://public-assets.toggl.space/cd2402f7-2f3f-4b30-bd89-5b4edb39f68d/static/f9bd9b316f0bfcb8c50670120dc28897/81307/people-alexis-ohanian.avif" />
+              <Image m="auto" maxW="5rem" src="https://public-assets.toggl.space/cd2402f7-2f3f-4b30-bd89-5b4edb39f68d/static/f9bd9b316f0bfcb8c50670120dc28897/81307/people-alexis-ohanian.avif" />
             </Box>
           </Box>
         </Flex>

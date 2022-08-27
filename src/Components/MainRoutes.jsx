@@ -33,15 +33,15 @@ export const MainRoutes = () => {
   return (
 
     <>
-      <Navbar />
+     
       <Routes>
         <Route path="/track/signup" element={<Signup />} />
         <Route path="/projects" element={< Projects/>} />
         <Route path="/track/login" element={<Login />} />
-        <Route path="/track/freelance-time-tracking" element={<Freelancers />} />
+       <Route path="/track/freelance-time-tracking" element={<Freelancers />} />
         <Route path="/track/time-tracking-small-teams" element={<SmallTeam />} />
         <Route path="/track/time-tracking-large-teams" element={<BigTeam />} />
-        <Route path="/track/pricing" element={<Pricing />} />
+        <Route path="/track/pricing" element={<Pricing />} /> 
         <Route path="/track/timer" element={<TogglTrackPage />} />
       </Routes>
     </>

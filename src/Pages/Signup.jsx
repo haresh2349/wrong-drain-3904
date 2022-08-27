@@ -4,6 +4,7 @@ import {createUserWithEmailAndPassword} from "firebase/auth";
 import { updateProfile } from "firebase/auth";
 import { auth } from "../Firebase";
 import { Link, useNavigate } from "react-router-dom";
+import Navbar from "./Navbar";
 
 const Signup = () => {
 const navigate = useNavigate();
@@ -43,6 +44,9 @@ const navigate = useNavigate();
   }
 
   return (
+    <>
+     <Navbar/>
+   
     <div style={{ textAlign: "center" }}>
       <div className={styles.signupheading}>
         <img src="https://i.postimg.cc/QxzkyhCG/toggle-icon.png" alt="" />
@@ -136,6 +140,7 @@ const navigate = useNavigate();
          <p style={{textAlign:"right", marginLeft:"1000px", marginTop:"15px"}}>Legal Terms</p>
       </div>
     </div>
+    </>
   );
 };
 
