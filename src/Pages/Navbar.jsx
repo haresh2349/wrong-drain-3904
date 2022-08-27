@@ -29,17 +29,17 @@ const Navbar = () => {
   
   <div className={style.sBox}>
   <PopoverTrigger>
-    <Button className={style.btnx}>Product<i className={style.arrow}></i></Button>
+    <Button style={{backgroundColor:"#2c1338"}} className={style.btnx}>Product<i className={style.arrow}></i></Button>
   </PopoverTrigger>
-  <Button className={style.btn}>Pricing</Button>
-  <Button className={style.btn}>Why Track? <i className={style.arrow}></i></Button>
-  <Button className={style.btn}>Careers <i className={style.arrow}></i></Button>
+  <Button style={{backgroundColor:"#2c1338"}} className={style.btn}>Pricing</Button>
+  <Button style={{backgroundColor:"#2c1338"}} className={style.btn}>Why Track? <i className={style.arrow}></i></Button>
+  <Button style={{backgroundColor:"#2c1338"}} className={style.btn}>Careers <i className={style.arrow}></i></Button>
   </div>
   <div className={style.sBox1}>
-  <Button className={style.btn}>Book a demo</Button>
+  <Button style={{backgroundColor:"#2c1338"}} className={style.btn}>Book a demo</Button>
   <div className={style.lin}>|</div>
-  <Button className={style.btn}>Log in</Button>
-  <Button className={style.btn2}>Try for free</Button>
+  <Button style={{backgroundColor:"#2c1338"}} className={style.btn}>Log in</Button>
+  <Button style={{backgroundColor:"#eed052", borderRadius:"25px"}} className={style.btn2}>Try for free</Button>
   </div>
   <PopoverContent zIndex={2}>
         <div className={style.B5}>
