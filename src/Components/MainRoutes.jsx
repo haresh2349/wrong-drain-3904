@@ -23,6 +23,12 @@ export const MainRoutes = () => {
       }
     })
   }, [])
+  
+  useEffect(()=>{
+      localStorage.setItem("usermail", JSON.stringify(userMail))
+  },[userMail])
+
+  
   return (
 
     <>
