@@ -6,8 +6,8 @@ import Projects from "./Components/Projects";
 function App() {
   return (
     <Box className="App">
-      {/* <MainRoutes /> */}
-      <Projects />
+      <MainRoutes />
+      {/* <Projects /> */}
     </Box>
   );
 }

@@ -147,7 +147,7 @@ const Projects = () => {
           <Link to="#">Learn more</Link>
         </Flex>
       </Box>
-      <Box
+      {/* <Box
         w="30%"
         m="auto"
         position="absolute"
@@ -156,6 +156,8 @@ const Projects = () => {
         left="0"
         right="0"
         height="300px"
+        bg="lightblue"
+        p="15px"
       >
         <Flex justifyContent="space-between" p="10px" alignItems="center">
           <Text>Create a new project</Text>
@@ -167,11 +169,11 @@ const Projects = () => {
           <FormLabel>Cleint</FormLabel>
           <Input type="email" placeholder="Cleint name" />
 
-          <Button w="100%" bg="#DD6FD1" m="20px 0">
+          <Button w="100%" mt="40px" bg="#DD6FD1">
             Create project
           </Button>
         </FormControl>
-      </Box>
+      </Box> */}
     </Box>
   );
 };
