@@ -9,6 +9,7 @@ import TogglTrackPage from "../Pages/TogglTrackPage/TogglTrackPage";
 import Login from "../Pages/Login";
 import { auth } from "../Firebase";
 import Navbar from "../Pages/Navbar";
+import Projects from "./Projects";
 
 export const MainRoutes = () => {
 
@@ -29,6 +30,7 @@ export const MainRoutes = () => {
       <Navbar />
       <Routes>
         <Route path="/track/signup" element={<Signup />} />
+        <Route path="/projects" element={< Projects/>} />
         <Route path="/track/freelance-time-tracking" element={<Freelancers />} />
         <Route path="/track/time-tracking-small-teams" element={<SmallTeam />} />
         <Route path="/track/time-tracking-large-teams" element={<BigTeam />} />

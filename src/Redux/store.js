@@ -1,4 +1,10 @@
-import { applyMiddleware, legacy_createStore } from "redux";
+import { applyMiddleware, legacy_createStore ,combineReducers,compose} from "redux";
 import thunk from "redux-thunk";
+import { appReducer } from "./AppReducer/AppReducer";
+ 
 
-export const store = legacy_createStore(applyMiddleware(thunk));
+const rootReducer=combineReducers({
+    appReducer
+})
+
+export const store = legacy_createStore(rootReducer,applyMiddleware(thunk));
