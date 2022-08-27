@@ -1,9 +1,11 @@
 .B1{
     height: 126px;
     width: 100%;
-    border: 1px solid;
+    border: px solid;
     background-color: #2c1338;
-}
+   /* margin-top: -120px; */
+   position: fixed;
+  }
 .B2{
     height: 26%;
     width: 100%;
@@ -53,11 +55,11 @@ p:hover{
     margin-top: 25px;
     margin-left: 29px;
   }
-  .btnx{
-    background-color:#2c1338 ;
-    color: aliceblue;
+  .hk2{
+  
+    color: whitesmoke;
   }
-  .btnx:hover{
+  .hk2:hover{
     color: #E57CD8;
     background: none;
   }
@@ -69,12 +71,12 @@ p:hover{
    display: flex;
    margin-left: 10px;
   }
-  .btn{
-    background-color:#2c1338 ;
-    color: aliceblue;
-   background: none;
+  .hk3{
+    background-color: #2c1338;
+    color: whitesmoke;
+  
   }
-  .btn:hover{
+  .hk3:hover{
     color: #E57CD8;
     background: none;
   }
@@ -87,13 +89,28 @@ p:hover{
     margin-left: 350px;
   }
   .lin{
-    color: white;
+    color: whitesmoke;
   }
-  .btn2{
+  .hk8{
     border-radius: 30px;
     padding: 25px 30px 25px 30px;
     color: #E57CD8;
   }
-  .btn2:hover{
+  .hk8:hover{
     background-color: #53385f;
+  }
+  .bi1{
+    height: 600px;
+    width: 100%;
+    background-color: #2c1338;
+    border: px solid red;
+    margin-top: 120px;
+  }
+  .bi2{
+    height: 300px;
+    width: 100%;
+    background-color: #2c1338;
+  }
+  .B5>img:hover{
+    cursor: pointer;
   }
