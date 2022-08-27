@@ -10,7 +10,13 @@ import {
   BsCurrencyDollar,
   BsFillPlayCircleFill,
 } from "react-icons/bs";
-import { ChevronDownIcon } from "@chakra-ui/icons";
+import {
+  AddIcon,
+  ChevronDownIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  MinusIcon,
+} from "@chakra-ui/icons";
 import {
   RiFileList2Fill,
   RiFileUserFill,
@@ -31,11 +37,6 @@ import {
   PopoverTrigger,
   PopoverContent,
   PopoverHeader,
-  PopoverBody,
-  PopoverFooter,
-  PopoverArrow,
-  PopoverCloseButton,
-  PopoverAnchor,
 } from "@chakra-ui/react";
 
 const TogglTrackPage = () => {
@@ -49,7 +50,7 @@ const TogglTrackPage = () => {
   hours = hours % 12;
   hours = hours ? hours : 12; // the hour '0' should be '12'
   minutes = minutes < 10 ? "0" + minutes : minutes;
-  const time = hours + ":" + minutes + ":" + " " + ampm;
+  // const time = hours + ":" + minutes + ":" + " " + ampm;
 
   const strTime = hours + ":" + minutes + " " + ampm;
 
@@ -155,7 +156,7 @@ const TogglTrackPage = () => {
               </div>
             </div>
 
-            {/* BsFillTagFill */}
+          
             <div className={styles.sideBar_track_div_inside_div}>
               <BsFillTagFill className={styles.icon} />
               <div className={styles.sideBar_track_div_track_timer_title}>
@@ -252,12 +253,22 @@ const TogglTrackPage = () => {
         </div>
       </div>
 
+      {/* ********  Right Container *********************** */}
+
       <div className={styles.right_container}>
+        {/* ****************  Right TopSection ***********8 */}
         <div className={styles.right_topsection}>
           <div className={styles.right_input_div}>
-            <input type="text" placeholder="What are you working on?" />
+            <Input type="text" placeholder="What are you working on?" focusBorderColor="white" _placeholder={{  color: 'gray.500' ,fontWeight:"bold"}}/>
           </div>
-          <div>+ Create a Project</div>
+
+
+
+  <div className={styles.create_button}  >Create Project</div>
+
+
+
+
           <BsFillTagFill />
           <BsCurrencyDollar />
 
@@ -284,7 +295,6 @@ const TogglTrackPage = () => {
               <CalendarTopSection border="none" />
             </PopoverContent>
           </Popover>
-          {/* onClick={()=>setShow(!show)}> 0: 00 :00 {show ? <CalendarTopSection/> :<></>} */}
 
           <Box
             onClick={() => {
@@ -307,6 +317,304 @@ const TogglTrackPage = () => {
             <BsFillPlayCircleFill className={styles.second_play_icon} />
             <AiFillPlusCircle className={styles.plus_icon} />
           </div>
+        </div>
+
+        {/*  ************  Middle Section      ******************* */}
+
+        <div className={styles.middle_section_main_div}>
+          <div className={styles.middle_section_upper_div}>
+            <div className={styles.middle_section_upper_left_div}>TODAY</div>
+            <div className={styles.middle_section_upper_right_div}>
+              <div className={styles.middle_section_week_div}>
+                <div style={{ width: "80px" }}>WEEK TOTAL</div>
+                <div>0:16:00</div>
+              </div>
+              <div className={styles.middle_section_box_div}>
+                <div style={{ borderRight: "1px solid", height: "30px" }}>
+                  <ChevronLeftIcon mr="10px" />
+                </div>
+                <div>This Week</div>
+                <div style={{ borderLeft: "1px solid", height: "30px" }}>
+                  <ChevronRightIcon ml="10px" />
+                </div>
+              </div>
+              <div></div>
+              <RiSettings5Fill fontSize={"20px"} />
+              <Button
+                bg="#fef9f7"
+                _hover={{
+                  backgroundColor: "#fef9f7",
+                }}
+                fontSize="12px"
+              >
+                VIEWS <ChevronDownIcon />
+              </Button>
+            </div>
+          </div>
+          <div className={styles.middle_section_lower_div}>
+            <div className={styles.middle_section_noproject_div}>
+              (NO PROJECT)
+            </div>
+            <div className={styles.middle_section_box_line}>{/* line */}</div>
+          </div>
+        </div>
+
+        {/* calendar section */}
+        <div className={styles.calendar_section_main_div}>
+          <table className={styles.calendar_time_table}>
+            <thead>
+              <tr>
+                <th className={styles.calender_first_heading}>
+                  <MinusIcon fontSize="12px" color={"black"} />
+                  <AddIcon fontSize="12px" />{" "}
+                </th>
+                <th className={styles.calendar_section_table_heading}>
+                  <h6>
+                    <span className={styles.date_span}>22</span>{" "}
+                    <span className={styles.span_day}>Mon</span>{" "}
+                    <p className={styles.heading_time}>0:15:00</p>
+                  </h6>
+                </th>
+
+                <th className={styles.calendar_section_table_heading}>
+                  <h6>
+                    <span className={styles.date_span}>23</span>{" "}
+                    <span className={styles.span_day}>Tue</span>{" "}
+                    <p className={styles.heading_time}>0:10:00</p>
+                  </h6>
+                </th>
+                <th className={styles.calendar_section_table_heading}>
+                  <h6>
+                    <span className={styles.date_span}>24</span>{" "}
+                    <span className={styles.span_day}>Wed</span>{" "}
+                    <p className={styles.heading_time}>0:00:00</p>
+                  </h6>
+                </th>
+                <th className={styles.calendar_section_table_heading}>
+                  <h6>
+                    <span className={styles.date_span}>25</span>{" "}
+                    <span className={styles.span_day}>Thur</span>{" "}
+                    <p className={styles.heading_time}>0:15:00</p>
+                  </h6>
+                </th>
+                <th className={styles.calendar_section_table_heading}>
+                  <h6>
+                    <span className={styles.date_span}>26</span>{" "}
+                    <span className={styles.span_day}>Fri</span>{" "}
+                    <p className={styles.heading_time}>0:15:00</p>
+                  </h6>
+                </th>
+                <th className={styles.calendar_section_table_heading}>
+                  <h6>
+                    <span className={styles.date_span}>27</span>{" "}
+                    <span className={styles.span_day}>Sat</span>{" "}
+                    <p className={styles.heading_time}>0:15:00</p>
+                  </h6>
+                </th>
+                <th className={styles.calendar_section_table_heading}>
+                  <h6>
+                    <span className={styles.date_span}>28</span>{" "}
+                    <span className={styles.span_day}>Sun</span>{" "}
+                    <p className={styles.heading_time}>0:15:00</p>
+                  </h6>
+                </th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {/* *******  row1 ***************/}
+              <tr>
+                <td>9:00 am</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              {/* *******  row2 ***************/}
+              <tr>
+                <td>10:00 am</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              {/* *******  row3 ***************/}
+              <tr>
+                <td>11:00 am</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              {/* *******  row4 ***************/}
+              <tr>
+                <td>12:00 pm</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              {/* *******  row5 ***************/}
+              <tr>
+                <td>1:00 pm</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              {/* *******  row6 ***************/}
+              <tr>
+                <td>2:00 pm</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              {/* *******  row7 ***************/}
+              <tr>
+                <td>3:00 pm</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              {/* *******  row8 ***************/}
+              <tr>
+                <td>4:00 pm</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              {/* *******  row9 ***************/}
+              <tr>
+                <td>5:00 pm</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              {/* *******  row10 ***************/}
+              <tr>
+                <td>6:00 pm</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              {/* *******  row11 ***************/}
+              <tr>
+                <td>7:00 pm</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              {/* *******  row12 ***************/}
+              <tr>
+                <td>8:00 pm</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              {/* *******  row13 ***************/}
+              <tr>
+                <td>9:00 pm</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              {/* *******  row14 ***************/}
+              <tr>
+                <td>10:00 pm</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              {/* *******  row15 ***************/}
+              <tr>
+                <td>11:00 pm</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+
+              {/* *******  row16 ***************/}
+              <tr>
+                <td>00:00</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
