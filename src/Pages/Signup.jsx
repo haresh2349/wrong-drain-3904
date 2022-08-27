@@ -33,7 +33,7 @@ const navigate = useNavigate();
           displayName : value.email
         })
         // console.log(user);
-        navigate("/")
+        navigate("/track/login")
 
       }).catch((err)=>{
         setSubmitButtonDisable(false);
