@@ -147,7 +147,7 @@ const Projects = () => {
 
 
      <Box>
-      {tasks.length===0 ? <EmptyProject/> : <ProjectData/>}
+      {tasks?.length===0 ? <EmptyProject/> : <ProjectData/>}
      </Box>
 
 
