@@ -42,7 +42,7 @@ add deploment link here
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/saradindu-prakash-13233b237/)
 
 
-    3. Bhavesh2302
+    3. Bhavesh Jain
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/Bhavesh2302)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/bhavesh-jain-b86120173/)
 
@@ -53,10 +53,6 @@ add deploment link here
     5. Biman Gharai
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/Biman721443)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/biman-gharai-236320226/)
-
-
-
-
 
 ## Feedback
 
