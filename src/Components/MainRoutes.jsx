@@ -6,10 +6,12 @@ import SmallTeam from "../why-track/Forsmallteam/SmallTeam";
 import Pricing from "../Pages/Pricing";
 import Signup from "../Pages/Signup";
 import TogglTrackPage from "../Pages/TogglTrackPage/TogglTrackPage";
+import Login from "../Pages/Login";
 import { auth } from "../Firebase";
 import Navbar from "../Pages/Navbar";
 
 export const MainRoutes = () => {
+
   const [userMail, setUserEmail] = useState("")
 
   useEffect(() => {
@@ -36,4 +38,5 @@ export const MainRoutes = () => {
     </>
 
   )
+
 };
