@@ -324,7 +324,7 @@ const Plans = () => {
               Powerful tools to keep growing teams aligned and agile
             </Text>
             <HStack
-              borderBottom="1px solid #808080"
+              borderBottom="1px solid rgb(128, 128, 128)"
               paddingBottom="30px"
               mb="15px"
             >
