@@ -44,7 +44,7 @@ const PricingPlans = () => {
             p={"0px 30px"}
             position="absolute"
             left="45px"
-            top="30px"
+            top="12px"
             transform="rotate(-25deg)"
           >
             <Text>Save 10%</Text>
@@ -57,7 +57,7 @@ const PricingPlans = () => {
           </Box>
         </Flex>
         <Flex
-          maxW={"59.5%"}
+          maxW={"68%"}
           gridGap="5px"
           height="50px"
           p="3px 0"
@@ -80,7 +80,7 @@ const PricingPlans = () => {
             Annual
           </Box>
           <Box
-            w="180px"
+            w="50%"
             textAlign={"center"}
             color={"black"}
             p="10px 20px"

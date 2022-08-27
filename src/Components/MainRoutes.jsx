@@ -9,6 +9,7 @@ import TogglTrackPage from "../Pages/TogglTrackPage/TogglTrackPage";
 import Login from "../Pages/Login";
 import { auth } from "../Firebase";
 import Navbar from "../Pages/Navbar";
+import Projects from "./Projects";
 
 export const MainRoutes = () => {
   const [userMail, setUserEmail] = useState("");
@@ -22,12 +23,17 @@ export const MainRoutes = () => {
       }
     });
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("usermail", JSON.stringify(userMail));
+  }, [userMail]);
+
   return (
     <>
-      <Navbar />
       <Routes>
         <Route path="/track/signup" element={<Signup />} />
         <Route path="/track/login" element={<Login />} />
+        <Route path="/projects" element={<Projects />} />
         <Route
           path="/track/freelance-time-tracking"
           element={<Freelancers />}

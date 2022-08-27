@@ -1,4 +1,4 @@
-import { Box, Button, Input } from "@chakra-ui/react";
+import { Box, Button, Flex, Input, Select } from "@chakra-ui/react";
 import React, { useRef } from "react";
 import styles from "./togglTrackPage.module.css";
 import {
@@ -31,6 +31,16 @@ import { CgOrganisation } from "react-icons/cg";
 import { AiFillPlusCircle } from "react-icons/ai";
 import CalendarTopSection from "../../Components/CalendarTopSection";
 import { useState } from "react";
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  ModalCloseButton,
+  useDisclosure
+} from '@chakra-ui/react'
 
 import {
   Popover,
@@ -38,10 +48,30 @@ import {
   PopoverContent,
   PopoverHeader,
 } from "@chakra-ui/react";
+import { useSelector ,useDispatch} from "react-redux";
+import { addProject, getProject } from "../../Redux/AppReducer/actions";
+import SideBar from "../../Components/SideBar";
 
 const TogglTrackPage = () => {
   const [timer, setTimer] = useState(0);
   let timerid = useRef(null);
+
+  // const [title,setTitle]=useState("")
+  // const [clientName,setClientName]=useState("")
+  const [visible,setVisible]=useState(false)
+
+  const [form,setForm]=useState({
+    title:"",
+    clientName:"",
+    template:"",
+  })
+
+// const store=useSelector((store)=>store)
+// console.log(store)
+const tasks=useSelector((store)=>store.appReducer.tasks)
+console.log(tasks)
+
+const dispatch=useDispatch()
 
   const date = new Date();
   var hours = date.getHours();
@@ -83,175 +113,45 @@ const TogglTrackPage = () => {
     setTimer(0);
   };
 
+
+  const handleAdd=(e)=>{
+    e.preventDefault()
+
+    const payload={
+      title:form.title,
+      clientName:form.clientName,
+      template:form.template,
+      visible:false
+    }
+
+  dispatch(addProject(payload)).then((r)=>{
+    dispatch(getProject())
+    alert("Project Added")
+  })
+  }
+  
+  const handleChange=(e)=>{
+   
+    const {name,value}=e.target
+
+    setForm({...form,[name]:value})
+
+
+  }
+
   // const endminutes=date.getMinutes() + 10 + ' ' + ampm;
   //   // const endTime=hours+ ":" + endminutes
   // console.log(strTime)
 
   const [show, setShow] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <div className={styles.togglTrackPage_main_container}>
-      <div className={styles.sideBar_container}>
-        <div className={styles.sideBar_header}>
-          <div className={styles.sideBar_header_title}>
-            <span className={styles.sideBar_header_toggl}>toggl</span>
-            <span className={styles.sideBar_header_track}>track</span>
-          </div>
-          {/* notifcation icon */}
-          <BsBellFill />
-        </div>
 
-        <div className={styles.sideBar_Bars}>
-          {/* track div */}
+      {/* Side Bar */}
+    <SideBar/>
 
-          <div className={styles.sideBar_track_div}>
-            <div className={styles.sideBar_track_div_heading}>TRACK</div>
-            <div className={styles.sideBar_track_div_inside_div}>
-              <BsClockFill className={styles.icon} />
-              <div className={styles.sideBar_track_div_track_timer_title}>
-                Timer
-              </div>
-            </div>
-          </div>
-
-          {/* analyze div */}
-
-          <div className={styles.sideBar_analyze_div}>
-            <div className={styles.sideBar_track_div_heading}>ANALYZE</div>
-            <div className={styles.sideBar_track_div_inside_div}>
-              <RiFileList2Fill className={styles.icon} />
-              <div className={styles.sideBar_track_div_track_timer_title}>
-                Reports
-              </div>
-            </div>
-            <div className={styles.sideBar_track_div_inside_div}>
-              <GoPulse className={styles.icon} />
-              <div className={styles.sideBar_track_div_track_timer_title}>
-                Insights
-              </div>
-            </div>
-          </div>
-
-          {/* manage div */}
-
-          <div className={styles.sideBar_manage_div}>
-            <div className={styles.sideBar_track_div_heading}>MANAGE</div>
-
-            <div className={styles.sideBar_track_div_inside_div}>
-              <IoIosFolder className={styles.icon} />
-              <div className={styles.sideBar_track_div_track_timer_title}>
-                Projects
-              </div>
-            </div>
-            <div className={styles.sideBar_track_div_inside_div}>
-              <RiFileUserFill className={styles.icon} />
-              <div className={styles.sideBar_track_div_track_timer_title}>
-                Clients
-              </div>
-            </div>
-            <div className={styles.sideBar_track_div_inside_div}>
-              <HiUsers className={styles.icon} />
-              <div className={styles.sideBar_track_div_track_timer_title}>
-                Team
-              </div>
-            </div>
-
-          
-            <div className={styles.sideBar_track_div_inside_div}>
-              <BsFillTagFill className={styles.icon} />
-              <div className={styles.sideBar_track_div_track_timer_title}>
-                Tags
-              </div>
-            </div>
-            <div className={styles.sideBar_track_div_inside_div}>
-              <IoIosHelpCircle className={styles.icon} />
-              <div className={styles.sideBar_track_div_track_timer_title}>
-                Help
-              </div>
-            </div>
-
-            <div className={styles.sideBar_track_div_inside_div}>
-              <FaFolderMinus className={styles.icon} />
-              <div className={styles.sideBar_track_div_track_timer_title}>
-                Subscription
-              </div>
-            </div>
-            <div className={styles.sideBar_track_div_inside_div}>
-              <GiPlug className={styles.icon} />
-              <div className={styles.sideBar_track_div_track_timer_title}>
-                Integration
-              </div>
-            </div>
-            {/* <div className={styles.sideBar_track_div_inside_div}> */}
-            {/* <BsClockFill className={styles.icon}/>
-    <div className={styles.sideBar_track_div_track_timer_title}>Import/Export</div>
-   </div>
-   <div className={styles.sideBar_track_div_inside_div}>
-    <BsClockFill className={styles.icon}/>
-    <div className={styles.sideBar_track_div_track_timer_title}>Mobile App</div>
-   </div>
-   <div className={styles.sideBar_track_div_inside_div}>
-    <BsClockFill className={styles.icon}/>
-    <div className={styles.sideBar_track_div_track_timer_title}>Desktop App</div>
-   </div>
-   <div className={styles.sideBar_track_div_inside_div}>
-    <BsClockFill className={styles.icon}/>
-    <div className={styles.sideBar_track_div_track_timer_title}>Blog</div>
-   </div>
-   <div className={styles.sideBar_track_div_inside_div}>
-    <BsClockFill className={styles.icon}/>
-    <div className={styles.sideBar_track_div_track_timer_title}>Jobs</div>
-   </div> */}
-          </div>
-
-          {/* admin div */}
-          <div className={styles.sideBar_admin_div}>
-            <div className={styles.sideBar_track_div_heading}>ADMIN</div>
-            <div className={styles.sideBar_track_div_inside_div}>
-              <CgOrganisation className={styles.icon} />
-              <div className={styles.sideBar_track_div_track_timer_title}>
-                Organisations
-              </div>
-            </div>
-            <div className={styles.sideBar_track_div_inside_div}>
-              <RiSettings5Fill className={styles.icon} />
-              <div className={styles.sideBar_track_div_track_timer_title}>
-                Settings
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className={styles.sideBar_trial_div}>
-          <div className={styles.sideBar_trial}>
-            <div className={styles.sideBar_thirty}> Trial: 30 days left</div>
-            <div className={styles.sideBar_upgrade}>Upgrade today</div>
-          </div>
-          <hr className={styles.hr} />
-
-          <div className={styles.resume_onboarding}>
-            <BsFillCheckCircleFill />
-            <div>Resume </div>
-          </div>
-        </div>
-
-        <div className={styles.workspace}>
-          <div className={styles.sideBar_track_div_heading_workspace}>
-            WORKSPACE
-          </div>
-          <div className={styles.sideBar_email_data}>
-            <BsBagDashFill className={styles.bag_icon} />
-
-            <div className={styles.email_id}>jainbhav...</div>
-            <ChevronDownIcon />
-          </div>
-        </div>
-
-        <div className={styles.sidebar_footer}>
-          <div className={styles.footer_email}>jainbhavesh...</div>
-          <div className={styles.emoji}>🙂</div>
-        </div>
-      </div>
 
       {/* ********  Right Container *********************** */}
 
@@ -263,8 +163,64 @@ const TogglTrackPage = () => {
           </div>
 
 
+{/* create project modal */}
 
-  <div className={styles.create_button}  >Create Project</div>
+
+
+  <div className={styles.create_button} onClick={onOpen} >Create Project</div>
+
+<Modal isOpen={isOpen} onClose={onClose} size="sm">
+  <ModalOverlay />
+  <ModalContent>
+    <ModalHeader>Create new project</ModalHeader>
+    <ModalCloseButton />
+    <ModalBody>
+
+      <form  onSubmit={handleAdd}>
+       <Box mt="20px" fontSize="12px">
+        <h3>NAME</h3>
+        <Input mt="10px" value={form.title} name="title"onChange={handleChange} placeholder="Project name"/>
+      </Box>
+
+
+      <Box  mt="20px" fontSize="12px">
+        <h3>CLIENT</h3>
+        <Input mt="10px" value={form.clientName}  name="clientName" onChange={handleChange} placeholder="Client name"/>
+      </Box>
+
+
+      <Box  mt="20px" fontSize="12px">
+        <h3>TEMPLATE</h3>
+        <Select mt="10px" name="template" onChange={handleChange} >
+<option value="temp1">Temp1</option>
+<option value="temp2">Temp2</option>
+        </Select>
+      </Box>
+
+
+{/* 
+      <Box  mt="20px" fontSize="12px">
+        <h3>VISIBILITY</h3>
+        <Input mt="10px" placeholder="Private"/>
+      </Box> */}
+      <Flex mt="20px" direction={"row"} gap="15px" fontSize="12px"> 
+        <Box><ChevronRightIcon/></Box>
+        <Box>ESTIMATES AND BILLING OPTIONS</Box>
+      </Flex>
+
+
+      <Input fontSize="12px"  bg="#d164c5" color="white" _hover={{
+
+        backgroundColor:"#d779c6"
+      }} mt="20px" mb="10px" type="submit"  value="Create project"/>
+
+      </form>
+   
+    </ModalBody>
+
+   
+  </ModalContent>
+</Modal>
 
 
 

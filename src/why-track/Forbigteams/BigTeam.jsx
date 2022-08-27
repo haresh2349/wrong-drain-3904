@@ -1,6 +1,7 @@
 import { Box, Heading, SimpleGrid, Image, Show, Button, Text, HStack, Spacer, Flex } from '@chakra-ui/react'
 import React, { useEffect } from 'react'
 import { Link } from "react-router-dom";
+import Navbar from '../../Pages/Navbar';
 import styles from "../whytrack.module.css"
 
 const BigTeam = () => {
@@ -9,6 +10,7 @@ const BigTeam = () => {
   })
   return (
     <Box>
+      <Navbar/>
       <Box>
         <Link to="/track/freelance-time-tracking" >free</Link>
         <br />
@@ -157,7 +159,7 @@ const BigTeam = () => {
           <Heading color="#ffffff" maxW="50%" m="auto" textAlign="center" >5M+ users trust Toggl Track to optimize their time</Heading>
         </Box>
         <Box m="auto" maxW="30rem" mt="4rem" pb="15rem" >
-          <Flex flexWrap="wrap"  >
+          <Flex flexWrap="wrap" flexDirection={"column"} >
             <Box bgColor="#e57cd8" p="1rem" m="auto" color="#ffffff" border="1px solid #e57cd8" borderRadius="2rem" _hover="white" >
               Start tracking for free
             </Box>
@@ -172,19 +174,22 @@ const BigTeam = () => {
 
 
 
-
       <Box bgColor="#fef3ed" >
         <Heading p="3rem" textAlign="center" color="#412a4c" >
-        Toggl Track is trusted by teams of 1 to 10,000
+          Toggl Track is trusted by teams of 1 to 10,000
         </Heading>
         <Text textAlign="center" color="#412a4c" >
-        Our users range from solo flyers to enterprise empires
+          Our users range from solo flyers to enterprise empires
         </Text>
 
         <Box p="3rem">
           <Image m="auto" src="https://public-assets.toggl.com/b/static/25b9283085ba538ba7d06ee114cdf965/67324/large-teams-logos-desktop.avif" />
         </Box>
       </Box>
+
+
+
+
 
 
 
@@ -202,37 +207,44 @@ const BigTeam = () => {
 
 
 
+
+
+
+
       <Box bgColor="#412a4c" border="1px solid #412a4c" >
 
-        <Box alignItems='left' bgColor="#ffffff" maxW="60rem" ml="3rem" mr="3rem" >
-          <Heading p="2rem" fontSize="25.6px" color="#2C1338" >
-          "We won business with clients like Uber and other Fortune 500s by bringing Toggl Track reports to our pitches."
-          </Heading>
-          <Text textAlign="center" color="#e57cd8" >David Jackson</Text>
-          <Text textAlign="center" color="#e57cd8" >Full Stack Labs</Text>
+        <Flex justify="flex-start" >
+          <Box>
+            <Box alignItems='left' bgColor="#ffffff" maxW="60rem" ml="3rem" mr="3rem" >
+              <Heading p="2rem" fontSize="25.6px" color="#2C1338" >
+                "We won business with clients like Uber and other Fortune 500s by bringing Toggl Track reports to our pitches."
+              </Heading>
+              <Text textAlign="center" color="#e57cd8" >David Jackson</Text>
+              <Text textAlign="center" color="#e57cd8" pb="2rem">Full Stack Labs</Text>
+            </Box>
+            <Box maxW="60rem" ml="3rem" mr="3rem" style={{ background: 'linear-gradient(to bottom, #ffffff 50%, #412a4c 50%)' }} >
+              <Image m="auto" maxW="5rem" src="https://public-assets.toggl.space/cd2402f7-2f3f-4b30-bd89-5b4edb39f68d/static/584502a980fa2dd5de884f9060a8eed0/81307/people-fullstack.avif" />
+            </Box>
+          </Box>
+        </Flex>
 
-        </Box>
 
-        <Box maxW="60rem" ml="3rem" mr="3rem" style={{ background: 'linear-gradient(to bottom, #ffffff 50%, #412a4c 50%)' }} >
-          <Image m="auto" maxW="3rem" src="https://public-assets.toggl.space/cd2402f7-2f3f-4b30-bd89-5b4edb39f68d/static/584502a980fa2dd5de884f9060a8eed0/81307/people-fullstack.avif" />
-        </Box>
+        <Flex justify="flex-end" >
+          <Box>
+            <Box alignItems='end' bgColor="#ffffff" maxW="60rem" ml="3rem" mt="5rem" mr="3rem">
+              <Heading p="2rem" fontSize="25.6px" color="#2C1338" >
+                "Toggl Track saved each team member 20 minutes per day, and delivered extensive data about which projects they worked on. Cumulatively, it's been huge."
+              </Heading>
+              <Text textAlign="center" color="#e57cd8" >Stephen Wierenga</Text>
+              <Text textAlign="center" color="#e57cd8" pb="2rem">Perception</Text>
 
+            </Box>
 
-
-
-        <Box alignItems='end' bgColor="#ffffff" maxW="60rem" ml="3rem" mt="5rem" mr="3rem">
-          <Heading p="2rem" fontSize="25.6px" color="#2C1338" >
-          "Toggl Track saved each team member 20 minutes per day, and delivered extensive data about which projects they worked on. Cumulatively, it's been huge."
-          </Heading>
-          <Text textAlign="center" color="#e57cd8" >Stephen Wierenga</Text>
-          <Text textAlign="center" color="#e57cd8" >Perception</Text>
-
-        </Box>
-
-        <Box maxW="60rem" ml="3rem" mr="3rem" style={{ background: 'linear-gradient(to bottom, #ffffff 50%, #412a4c 50%)' }} >
-          <Image m="auto" maxW="3rem" src="https://public-assets.toggl.space/cd2402f7-2f3f-4b30-bd89-5b4edb39f68d/static/f7987922cfe044f723e01b8ae260cf98/81307/people-perception.avif" />
-        </Box>
-
+            <Box maxW="60rem" ml="3rem" mr="3rem" style={{ background: 'linear-gradient(to bottom, #ffffff 50%, #412a4c 50%)' }} >
+              <Image m="auto" maxW="5rem" src="https://public-assets.toggl.space/cd2402f7-2f3f-4b30-bd89-5b4edb39f68d/static/f7987922cfe044f723e01b8ae260cf98/81307/people-perception.avif" />
+            </Box>
+          </Box>
+        </Flex>
 
         <Box height="5rem" />
 
@@ -242,12 +254,8 @@ const BigTeam = () => {
 
       </Box>
 
-
-
     </Box>
   )
 }
 
 export default BigTeam
-
-// background: linear-gradient(to bottom, #FFF3ED 50%, #2C1338 50%);

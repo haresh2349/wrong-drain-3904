@@ -1,6 +1,7 @@
-import { Box, Heading, SimpleGrid, Image, Show, Button, Text, HStack, Spacer, Flex } from '@chakra-ui/react'
+import { Box, Button, Flex, Heading, HStack, Image, Show, SimpleGrid, Spacer, Text } from '@chakra-ui/react'
 import React, { useEffect } from 'react'
 import { Link } from "react-router-dom"
+import Navbar from '../../Pages/Navbar'
 import styles from "../whytrack.module.css"
 const Freelancer = () => {
   useEffect(() => {
@@ -8,6 +9,7 @@ const Freelancer = () => {
   })
   return (
     <Box>
+      <Navbar/>
       <Box>
         <Link to="/track/freelance-time-tracking" >free</Link>
         <br />
@@ -77,7 +79,7 @@ const Freelancer = () => {
           </Box>
         </HStack>
       </Show>
-      <Show below="md" >
+      <Show below="md" p="3rem" >
         <Box bgColor="#fef3ed" >
           <Image p="20%" src="https://public-assets.toggl.space/6a88715f-52fe-4e26-99f5-744dd5f5b092/static/c479802bb3dcaa4d05deaa9f2bc7f146/3f0bb/feature-graphs.avif" alt="" />
         </Box>
@@ -94,7 +96,7 @@ const Freelancer = () => {
           <Image maxW="30rem" src="https://public-assets.toggl.space/6a88715f-52fe-4e26-99f5-744dd5f5b092/static/1d75f67b9bac69fe63a659873978936a/af3f3/feature-time-entries.avif" alt="" />
 
         </Box>
-        <Box>
+        <Box p="3rem" >
           <Image pb="2rem" src="https://public-assets.toggl.space/6a88715f-52fe-4e26-99f5-744dd5f5b092/static/66f27591a1bb8c35eb25b463d69b9073/73ddc/icon-money-dark.avif" alt="" />
           <Heading fontSize="25.6px" >Create accurate invoices easily</Heading>
           <Text fontSize="16.2px" >There’s no dread like end-of-the-month, time-to-create-invoices dread. Toggl Track takes your hours logged, and turns them into clean reports. You’ll know exactly where you spent your time—and how to bill it—cha-ching!</Text>
@@ -111,7 +113,7 @@ const Freelancer = () => {
           </Box>
           <Spacer />
           <Box>
-            <Image  maxW="30rem" src="https://public-assets.toggl.space/6a88715f-52fe-4e26-99f5-744dd5f5b092/static/b35ef7e54578a8a6eebf590f54353ea3/ce5a6/feature-calendar.avif" alt="" />
+            <Image maxW="30rem" src="https://public-assets.toggl.space/6a88715f-52fe-4e26-99f5-744dd5f5b092/static/b35ef7e54578a8a6eebf590f54353ea3/ce5a6/feature-calendar.avif" alt="" />
           </Box>
         </HStack>
       </Show>
@@ -129,9 +131,9 @@ const Freelancer = () => {
 
       <SimpleGrid columns={[1, null, 2]} m="auto" pt="3rem" pb="2rem" pl="5%" pr="5%" bgColor="#fef3ed"  >
         <Box>
-          <Image  maxW="30rem" src="https://public-assets.toggl.space/6a88715f-52fe-4e26-99f5-744dd5f5b092/static/e335fd772212c6144a8f4e02609d0d0c/10316/feature-reminders.avif" alt="" />
+          <Image maxW="30rem" src="https://public-assets.toggl.space/6a88715f-52fe-4e26-99f5-744dd5f5b092/static/e335fd772212c6144a8f4e02609d0d0c/10316/feature-reminders.avif" alt="" />
         </Box>
-        <Box>
+        <Box p="3rem">
           <Image pb="2rem" src="https://public-assets.toggl.space/6a88715f-52fe-4e26-99f5-744dd5f5b092/static/caf89ee4a474d1385ff4afa8f103b2e9/b79cb/icon-calendar-dark.avif" alt="" />
           <Heading fontSixe="25.6px" >Efficiency in practice</Heading>
           <Text fontSize="16.2px"  >You don't need another chore. Track isn't another tool you dread opening. There's no onboarding required. Track will even remind you to pause or clock out. Because your well-being is just as important as your to-do list.</Text>
@@ -153,7 +155,7 @@ const Freelancer = () => {
           <Heading color="#ffffff" maxW="50%" m="auto" textAlign="center" >5M+ users trust Toggl Track to optimize their time</Heading>
         </Box>
         <Box m="auto" maxW="30rem" mt="4rem" pb="5rem" >
-          <Flex flexWrap="wrap"  >
+          <Flex flexWrap="wrap" flexDirection={"column"} >
             <Box bgColor="#e57cd8" p="1rem" m="auto" color="#ffffff" border="1px solid #e57cd8" borderRadius="2rem" _hover="white" >
               Start tracking for free
             </Box>
@@ -178,34 +180,39 @@ const Freelancer = () => {
 
       <Box bgColor="#412a4c" border="1px solid #412a4c" >
 
-        <Box alignItems='left' bgColor="#ffffff" maxW="60rem" ml="3rem" mr="3rem" >
-          <Heading p="2rem" fontSize="25.6px" color="#2C1338" >
-            "Toggl Track is wickedly easy to use. Having graphs and Summaries vs. Detailed Time is the most brilliant feature of the platform. It's magical."
-          </Heading>
-          <Text textAlign="center" color="#e57cd8" >Chris Harvey</Text>
-          <Text textAlign="center" color="#e57cd8" >Harvey Esquire</Text>
 
-        </Box>
+        <Flex justify="flex-start"  >
+          <Box>
+            <Box alignItems='left' bgColor="#ffffff" maxW="60rem" ml="3rem" mr="3rem" >
+              <Heading p="4rem" fontSize="25.6px" color="#2C1338" >
+                "Toggl Track is wickedly easy to use. Having graphs and Summaries vs. Detailed Time is the most brilliant feature of the platform. It's magical."
+              </Heading>
+              <Text textAlign="center" color="#e57cd8" >Chris Harvey</Text>
+              <Text textAlign="center" color="#e57cd8" pb="2rem">Harvey Esquire</Text>
+            </Box>
+            <Box maxW="60rem" ml="3rem" mr="3rem" style={{ background: 'linear-gradient(to bottom, #ffffff 50%, #412a4c 50%)' }} >
+              <Image m="auto" maxW="5rem" src="https://public-assets.toggl.space/cd2402f7-2f3f-4b30-bd89-5b4edb39f68d/static/634fa2fd1623161327d2299bbeb23ff3/81307/people-chris-harvey.avif" />
+            </Box>
+          </Box>
+        </Flex>
 
-        <Box maxW="60rem" ml="3rem" mr="3rem" style={{ background: 'linear-gradient(to bottom, #ffffff 50%, #412a4c 50%)' }} >
-          <Image m="auto" maxW="3rem" src="https://public-assets.toggl.space/cd2402f7-2f3f-4b30-bd89-5b4edb39f68d/static/634fa2fd1623161327d2299bbeb23ff3/81307/people-chris-harvey.avif" />
-        </Box>
 
 
+        <Flex justify="flex-end"  >
+          <Box>
+            <Box alignItems='end' bgColor="#ffffff" maxW="60rem" ml="3rem" mt="5rem" mr="3rem" >
+              <Heading p="4rem" fontSize="25.6px" color="#2C1338" >
+                "Started tracking all my hours using Toggl Track and I'm addicted. I think it's going to be life-changing."
+              </Heading>
+              <Text textAlign="center" color="#e57cd8" >Alexis O'Hanian</Text>
+              <Text textAlign="center" color="#e57cd8" pb="2rem">Founder of Reddit</Text>
+            </Box>
+            <Box maxW="60rem" ml="3rem" mr="3rem" style={{ background: 'linear-gradient(to bottom, #ffffff 50%, #412a4c 50%)' }} >
+              <Image m="auto" maxW="5rem" src="https://public-assets.toggl.space/cd2402f7-2f3f-4b30-bd89-5b4edb39f68d/static/f9bd9b316f0bfcb8c50670120dc28897/81307/people-alexis-ohanian.avif" />
+            </Box>
+          </Box>
+        </Flex>
 
-
-        <Box alignItems='end' bgColor="#ffffff" maxW="60rem" ml="3rem" mt="5rem" mr="3rem" >
-          <Heading p="2rem" fontSize="25.6px" color="#2C1338" >
-            "Started tracking all my hours using Toggl Track and I'm addicted. I think it's going to be life-changing."
-          </Heading>
-          <Text textAlign="center" color="#e57cd8" >Alexis O'Hanian</Text>
-          <Text textAlign="center" color="#e57cd8" >Founder of Reddit</Text>
-
-        </Box>
-
-        <Box maxW="60rem" ml="3rem" mr="3rem"  style={{ background: 'linear-gradient(to bottom, #ffffff 50%, #412a4c 50%)' }} >
-          <Image m="auto" maxW="3rem" src="https://public-assets.toggl.space/cd2402f7-2f3f-4b30-bd89-5b4edb39f68d/static/f9bd9b316f0bfcb8c50670120dc28897/81307/people-alexis-ohanian.avif" />
-        </Box>
 
 
         <Box height="5rem" />
