@@ -10,15 +10,46 @@ import {
   Image,
   Input,
   Select,
+  Table,
   Text,
+  useDisclosure
 } from "@chakra-ui/react";
+
+import { useDispatch, useSelector } from "react-redux";
+
+import { getProject } from "../Redux/AppReducer/actions";
+
 import React from "react";
-import { FaUser } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { FaTasks, FaUser } from "react-icons/fa";
+import EmptyProject from "./EmptyProject";
+import ProjectData from "./ProjectData";
+
+import SideBar from "./SideBar";
+
 
 const Projects = () => {
+  const dispatch=useDispatch()
+
+  const tasks=useSelector((store)=>store.appReducer.tasks)
+  console.log(tasks)
+  
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  
+  useEffect(()=>{
+    if(tasks.length===0){
+      dispatch(getProject())
+    }
+  },[tasks.length])
+
+
   return (
-    <Box w="80%" position="relative" height="100vh">
+
+
+    <Box display={"flex"}>
+<SideBar color="white"/>
+
+    <Box w="87%" position="relative" height="100vh" left="13%" bg="white">
       <Flex justifyContent="space-between" p="15px">
         <Heading size="md">Projects</Heading>
         <Button bg="#DD6FD1" color="#FFFF" fontSize="17px">
@@ -54,7 +85,7 @@ const Projects = () => {
           <Flex gridGap="10px" alignItems="center">
             <Box>
               <svg
-                class="css-18eihd5-spacingRight"
+                className="css-18eihd5-spacingRight"
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
                 height="18"
@@ -74,7 +105,7 @@ const Projects = () => {
           <Flex gridGap="10px" alignItems="center">
             <Box>
               <svg
-                class="css-9332z-BillableIcon-spacingRight e1q5ulgx0"
+                className="css-9332z-BillableIcon-spacingRight e1q5ulgx0"
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
                 height="18"
@@ -93,7 +124,7 @@ const Projects = () => {
           <Flex gridGap="10px" alignItems="center">
             <Box>
               <svg
-                class="css-zulhbj-EnhancedDescriptionIcon-spacingRight e1a87xe20"
+                className="css-zulhbj-EnhancedDescriptionIcon-spacingRight e1a87xe20"
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
                 height="18"
@@ -112,41 +143,15 @@ const Projects = () => {
           </Flex>
         </Flex>
       </Flex>
-      <Box bg="#FEF9F7" position="relative" height="600px">
-        <Flex
-          w="50%"
-          m="auto"
-          position="absolute"
-          top="0"
-          left="0"
-          right="0"
-          bottom="0"
-          flexDirection="column"
-          textAlign="center"
-          bg="#FFFF"
-          p="30px"
-          height="500px"
-          borderRadius="12px"
-          boxShadow="rgba(149, 157, 165, 0.2) 0px 8px 24px"
-        >
-          <Box>
-            <Image
-              w="50%"
-              m="auto"
-              src="https://web-assets.toggl.com/app/assets/images/7026023e2c995e75.png"
-            />
-          </Box>
-          <Heading size="md">Create a Project and get organized!</Heading>
-          <Text>
-            Projects are the backbones of time entry categorization in your
-            workspace.{" "}
-          </Text>
-          <Button w="20%" m="auto" bg="#DD6FD1" color="#FFFF">
-            Create one
-          </Button>
-          <Link to="#">Learn more</Link>
-        </Flex>
-      </Box>
+
+
+
+     <Box>
+      {tasks.length===0 ? <EmptyProject/> : <ProjectData/>}
+     </Box>
+
+
+
       {/* <Box
         w="30%"
         m="auto"
@@ -174,6 +179,7 @@ const Projects = () => {
           </Button>
         </FormControl>
       </Box> */}
+    </Box>
     </Box>
   );
 };
