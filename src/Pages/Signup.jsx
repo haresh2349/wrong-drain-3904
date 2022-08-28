@@ -44,8 +44,8 @@ const navigate = useNavigate();
   }
 
   return (
-    <>
-     <Navbar/>
+    <div style={{position:"absolute",top:"100px"}}>
+     {/* <Navbar/> */}
    
     <div style={{ textAlign: "center" }}>
       <div className={styles.signupheading}>
@@ -140,7 +140,7 @@ const navigate = useNavigate();
          <p style={{textAlign:"right", marginLeft:"1000px", marginTop:"15px"}}>Legal Terms</p>
       </div>
     </div>
-    </>
+    </div>
   );
 };
 
