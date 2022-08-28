@@ -4,11 +4,6 @@ import {
   Popover,
   PopoverTrigger,
   PopoverContent,
-  PopoverHeader,
-  PopoverBody,
-  PopoverFooter,
-  PopoverArrow,
-  PopoverCloseButton,
   Button,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
@@ -29,6 +24,7 @@ const Navbar = () => {
             src="https://toggl.com/blog/wp-content/uploads/2020/09/toggl-track_logotype_horizontal_pink_rgb-e1599116263835.png"
             alt=""
           />
+
 
           <Popover>
             <div className={style.sBox}>
@@ -96,14 +92,11 @@ const Navbar = () => {
                 Try for free
               </Button>
             </div>
-            {/* <PopoverContent zIndex={2}>
-        <div className={style.B5}>
-    <p>i am biman</p>
-    </div>
-  </PopoverContent> */}
+           
           </Popover>
         </div>
       </div>
+
     </>
   );
 };

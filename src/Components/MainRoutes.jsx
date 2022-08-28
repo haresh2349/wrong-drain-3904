@@ -8,9 +8,12 @@ import Signup from "../Pages/Signup";
 import TogglTrackPage from "../Pages/TogglTrackPage/TogglTrackPage";
 import Login from "../Pages/Login";
 import { auth } from "../Firebase";
+
+
 import Navbar from "../Pages/Navbar";
 import Projects from "./Projects";
 import HomePage from "../Pages/Homepage/HomePage";
+
 
 export const MainRoutes = () => {
   const [userMail, setUserEmail] = useState("");
@@ -31,6 +34,7 @@ export const MainRoutes = () => {
 
   return (
     <>
+
          <Navbar/>
       <Routes>
       <Route path="/" element={<HomePage />} />
@@ -49,6 +53,7 @@ export const MainRoutes = () => {
         <Route path="/track/pricing" element={<Pricing />} />
         <Route path="/track/timer" element={<TogglTrackPage />} />
       </Routes>
+
     </>
   );
 };
