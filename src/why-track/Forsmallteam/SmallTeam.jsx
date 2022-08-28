@@ -2,7 +2,9 @@ import { Box, Heading, SimpleGrid, Image, Show, Button, Text, HStack, Spacer, Fl
 import React, { useEffect } from 'react'
 import { Link } from "react-router-dom"
 import Navbar from '../../Pages/Navbar'
+import SideNavbar from '../../Pages/SideNavbar';
 import styles from "../whytrack.module.css"
+import {ChevronRightIcon } from '@chakra-ui/icons'
 
 const SmallTeam = () => {
   useEffect(() => {
@@ -10,14 +12,8 @@ const SmallTeam = () => {
   })
   return (
     <Box>
-      <Navbar/>
-      <Box>
-        <Link to="/track/freelance-time-tracking" >free</Link>
-        <br />
-        <Link to="/track/time-tracking-small-teams" >small</Link>
-        <br />
-        <Link to="/track/time-tracking-large-teams" >big</Link>
-      </Box>
+      <Show above="md" ><Navbar /></Show>
+      <Show below="md" ><SideNavbar /></Show>
       <Show above='md'>
         <SimpleGrid columns={2} bgColor="#2c1438" >
           <Box m="auto" p="2rem" >
@@ -157,7 +153,7 @@ const SmallTeam = () => {
             </Box>
             <Spacer />
             <Box color="#ffffff" p="1rem" m="auto" >
-              Discover more features
+              Discover more features <ChevronRightIcon />
             </Box>
           </Flex>
         </Box>
