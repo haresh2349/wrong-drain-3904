@@ -7,7 +7,7 @@ import TopHomepage from './TopHomepage'
 
 const HomePage = () => {
   return (
-    <div>
+    <div style={{position:"absolute",top:"100px"}}>
         <TopHomepage/>
         <SecondHome/>
         <Middle/>

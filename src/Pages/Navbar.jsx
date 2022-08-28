@@ -30,7 +30,7 @@ const Navbar = () => {
             <div className={style.sBox}>
               <PopoverTrigger>
                 <Button
-                  style={{ backgroundColor: "#2c1338" }}
+                  style={{ backgroundColor: "#2c1338",color:"#fff" }}
                   className={style.btnx}
                 >
                   Product<i className={style.arrow}></i>

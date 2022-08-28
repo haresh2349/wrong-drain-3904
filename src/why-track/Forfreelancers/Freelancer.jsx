@@ -134,7 +134,7 @@ const Freelancer = () => {
         </Box>
         <Box p="3rem">
           <Image pb="2rem" src="https://public-assets.toggl.space/6a88715f-52fe-4e26-99f5-744dd5f5b092/static/caf89ee4a474d1385ff4afa8f103b2e9/b79cb/icon-calendar-dark.avif" alt="" />
-          <Heading fontSixe="25.6px" >Efficiency in practice</Heading>
+          <Heading fontSize="25.6px" >Efficiency in practice</Heading>
           <Text fontSize="16.2px"  >You don't need another chore. Track isn't another tool you dread opening. There's no onboarding required. Track will even remind you to pause or clock out. Because your well-being is just as important as your to-do list.</Text>
         </Box>
       </SimpleGrid>
