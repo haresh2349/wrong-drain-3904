@@ -44,10 +44,10 @@ const navigate = useNavigate();
   }
 
   return (
-    <>
+    <div >
      <Navbar/>
    
-    <div style={{ textAlign: "center" }}>
+    <div style={{ textAlign: "center" ,position:"absolute",top:"100px"}}>
       <div className={styles.signupheading}>
         <img src="https://i.postimg.cc/QxzkyhCG/toggle-icon.png" alt="" />
         <h1 className={styles.heads1top}>
@@ -140,7 +140,7 @@ const navigate = useNavigate();
          <p style={{textAlign:"right", marginLeft:"1000px", marginTop:"15px"}}>Legal Terms</p>
       </div>
     </div>
-    </>
+    </div>
   );
 };
 

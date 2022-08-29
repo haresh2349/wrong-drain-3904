@@ -122,7 +122,7 @@ const Login = () => {
         </div>
         <div className={styles.bottom}>
           <p>Don't have an account?</p>
-          <Link to="/signup">
+          <Link to="/track/signup">
             <button className={styles.linkbutton}>Sign up for free</button>
           </Link>
           <br />

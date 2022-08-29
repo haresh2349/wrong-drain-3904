@@ -1,6 +1,6 @@
 import { Box, Button, Flex, Heading, HStack, Image, Show, SimpleGrid, Spacer, Text } from '@chakra-ui/react'
 import React, { useEffect } from 'react'
-import { Link } from "react-router-dom"
+
 import Navbar from '../../Pages/Navbar'
 import SideNavbar from '../../Pages/SideNavbar';
 import styles from "../whytrack.module.css"

@@ -1,4 +1,5 @@
 import React from 'react'
+import Navbar from '../Navbar'
 import CompanyLogo from './CompanyLogo'
 import Footer from './Footer'
 import Middle from './Middle'
@@ -7,6 +8,8 @@ import TopHomepage from './TopHomepage'
 
 const HomePage = () => {
   return (
+    <>
+    <Navbar/>
     <div style={{position:"absolute",top:"100px"}}>
         <TopHomepage/>
         <SecondHome/>
@@ -14,6 +17,7 @@ const HomePage = () => {
         <CompanyLogo/>
         <Footer/>
     </div>
+    </>
   )
 }
 

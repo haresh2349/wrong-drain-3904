@@ -4,15 +4,15 @@ import { useEffect } from "react";
 import {
   Thead,
   Tbody,
-  Tfoot,
+ 
   Tr,
   Th,
   Td,
-  TableCaption,
+ 
   TableContainer,
 } from "@chakra-ui/react";
 import { Table, Box } from "@chakra-ui/react";
-import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
+import { DeleteIcon } from "@chakra-ui/icons";
 import {
   Modal,
   ModalOverlay,
@@ -50,7 +50,7 @@ const ProjectData = () => {
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const [currenData, setCurrentData] = useState({});
+  // const [currenData, setCurrentData] = useState({});
 
   useEffect(() => {
     if (tasks.length === 0) {
