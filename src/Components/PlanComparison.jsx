@@ -1,5 +1,5 @@
 import { CheckIcon, InfoOutlineIcon } from "@chakra-ui/icons";
-import { Box, Button, Flex, Heading, HStack, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Text } from "@chakra-ui/react";
 import React from "react";
 
 const PlanComparison = () => {

@@ -7,7 +7,10 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import Popup from "../Components/Popup";
+import { useState } from "react";
 const Navbar = () => {
+   const[show,setShow]=useState(false)
   const navigate = useNavigate();
   return (
     <>
@@ -49,10 +52,13 @@ const Navbar = () => {
                 style={{ backgroundColor: "#2c1338" }}
                 className={style.btn}
                 onClick={() => {
+                  setShow(!show)
                   navigate("/track/freelance-time-tracking");
                 }}
               >
                 Why Track? <i className={style.arrow}></i>
+
+               
               </Button>
               <Button
                 style={{ backgroundColor: "#2c1338" }}
@@ -96,6 +102,8 @@ const Navbar = () => {
           </Popover>
         </div>
       </div>
+
+      {show ? <Popup/> : ""}
 
     </>
   );

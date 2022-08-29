@@ -1,10 +1,11 @@
 .B1{
     height: 126px;
     width: 100%;
-    border: px solid;
+    border: 1px solid;
     background-color: #2c1338;
    /* margin-top: -120px; */
    position: fixed;
+   z-index: 10;
   }
 .B2{
     height: 26%;
@@ -12,7 +13,7 @@
     background-color: #E57CD8;
     display: flex;
     gap: 12px;
-    justify-content: end;
+    justify-content: flex-end;
     font-size: 12px;
 }
 .B2>p{

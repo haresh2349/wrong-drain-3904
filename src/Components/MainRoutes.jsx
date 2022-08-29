@@ -10,7 +10,7 @@ import Login from "../Pages/Login";
 import { auth } from "../Firebase";
 
 
-import Navbar from "../Pages/Navbar";
+
 import Projects from "./Projects";
 import HomePage from "../Pages/Homepage/HomePage";
 
@@ -35,7 +35,7 @@ export const MainRoutes = () => {
   return (
     <>
 
-         <Navbar/>
+         
       <Routes>
       <Route path="/" element={<HomePage />} />
         <Route path="/track/signup" element={<Signup />} />

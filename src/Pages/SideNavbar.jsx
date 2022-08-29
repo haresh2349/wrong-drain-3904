@@ -39,16 +39,16 @@ const SideNavbar = () => {
     }
     return (
 
-        <Box p="2rem" bg="#fce5d8">
-            <Flex  >
-                <Box>
+        <Box  bg="#fce5d8" >
+            <Flex  alignItems={"center"}>
+                <Box >
                     <Image maxW="10rem" src="https://toggl.com/blog/wp-content/uploads/2020/09/toggl-track_logotype_horizontal_pink_rgb-e1599116263835.png" />
                 </Box>
                 <Spacer />
                 <Box>
                     <Button
                         onClick={() => handleClick(size)}
-                        key='full'
+                        key='xs'
                         m={4}
                     >
                         <HamburgerIcon />
@@ -58,11 +58,11 @@ const SideNavbar = () => {
 
 
 
-            <Drawer onClose={onClose} isOpen={isOpen} size={size}>
+            <Drawer onClose={onClose} isOpen={isOpen} size={"xs"} p="3rem">
                 <DrawerOverlay />
                 <DrawerContent bg="#fce5d8" >
                     <DrawerCloseButton />
-                    <DrawerHeader><Image maxW="10rem" src="https://toggl.com/blog/wp-content/uploads/2020/09/toggl-track_logotype_horizontal_pink_rgb-e1599116263835.png" /></DrawerHeader>
+                    <DrawerHeader><Image maxW="8rem" src="https://toggl.com/blog/wp-content/uploads/2020/09/toggl-track_logotype_horizontal_pink_rgb-e1599116263835.png" /></DrawerHeader>
                     <hr style={{ borderColor: "black" }} />
                     <DrawerBody>
                         <Box>
