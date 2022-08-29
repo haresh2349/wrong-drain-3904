@@ -10,6 +10,12 @@ Toggl Track tracks time blocks, optionally labeled with a task, a project, and t
 
 <b> And we cloned it for our construct week Project. </b>
 
+
+## Deployment Link
+
+Deplyment Link : https://toggl-track.vercel.app/
+
+
 <h2>Here are some screen-shots from our website</h2>
 
 ## Homepage
@@ -70,14 +76,6 @@ Toggl Track tracks time blocks, optionally labeled with a task, a project, and t
 - Header and Footer with routing functionality.
 - Timer functionality.
 - Edit and create functionality.
-
-
-
-
-## Deployment Link
-
-Deplyment Link : https://toggl-track.vercel.app/
-
 
 
 ## 🔗 Team Members & Contributions
