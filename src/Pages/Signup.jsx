@@ -44,8 +44,10 @@ const navigate = useNavigate();
   }
 
   return (
+
     <div >
      <Navbar/>
+
    
     <div style={{ textAlign: "center" ,position:"absolute",top:"100px"}}>
       <div className={styles.signupheading}>

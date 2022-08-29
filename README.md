@@ -1,6 +1,6 @@
 # Masai School Construct Week Project
 
-Welcome, we're are team , and this Readme contains details about our project. We‘ve built a cloned website of Toggle.com with some of its basic functionalities. This overall project was a part of our construct week at Masai School.
+Welcome, we're are team , and this Readme contains details about our project. We‘ve built a cloned website of toggl/track.com with some of its basic functionalities. This overall project was a part of our construct week at Masai School.
 
 
 
@@ -12,22 +12,71 @@ Toggl Track tracks time blocks, optionally labeled with a task, a project, and t
 
 <h2>Here are some screen-shots from our website</h2>
 
-add screeshot some here
+## Homepage
+
+<img  src="https://i.imgur.com/HSXkgXT.png" alt="Homepage"/>
+
+## Pricing Page
+
+<img  src="https://i.imgur.com/9LuXoKd.png" alt="Pricing "/>
+
+## Freelancers Page
+
+<img  src="https://i.imgur.com/rUShDUL.png" alt="Freelancers"/>
+
+## Small Teams Page
+
+<img  src="https://i.imgur.com/u1kJr34.png" alt="Small Teams"/>
+
+## Big Teams Page
+
+<img  src="https://i.imgur.com/wc0nBEu.png" alt="BigTeams"/>
+
+
+## Signup Page
+
+<img  src="https://i.imgur.com/D67DxnY.png" alt="Signup"/>
+
+
+## Login Page
+
+<img  src="https://i.imgur.com/tfurJfy.png" alt="Login"/>
+
+
+## Timer Page
+
+<img  src="https://i.imgur.com/4BuPwoF.png" alt="timer"/>
+
+
+## Projects Page
+
+<img  src="https://i.imgur.com/sgsakjH.png" alt="projects"/>
+
+
+##  Create Project Modal
+
+<img  src="https://i.imgur.com/NifWtdb.png" alt="createModal"/>
+
+
+##  Edit Project Modal
+
+<img  src="https://i.imgur.com/bdcuwoS.png" alt="editModal"/>
 
 
 
 ## Features
 
-- Sign-up & Log-In
-- Otp Verification
-- Header and Footer with routing functionality
+- Sign-up & Log-In.
+- Header and Footer with routing functionality.
+- Timer functionality.
+- Edit and create functionality.
 
 
 
 
 ## Deployment Link
 
-add deploment link here
+Deplyment Link : https://toggl-track.vercel.app/
 
 
 
