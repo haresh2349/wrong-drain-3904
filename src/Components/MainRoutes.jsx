@@ -21,6 +21,7 @@ export const MainRoutes = () => {
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
+        localStorage.setItem("usermail", JSON.stringify(user.displayName));
         setUserEmail(user.displayName);
       } else {
         setUserEmail("");
@@ -28,9 +29,7 @@ export const MainRoutes = () => {
     });
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem("usermail", JSON.stringify(userMail));
-  }, [userMail]);
+ 
 
   return (
     <>

@@ -12,6 +12,7 @@ import { useState } from "react";
 const Navbar = () => {
    const[show,setShow]=useState(false)
   const navigate = useNavigate();
+  const useremail = JSON.parse(localStorage.getItem("usermail"));
   return (
     <>
       <div className={style.B1}>
@@ -92,7 +93,14 @@ const Navbar = () => {
 
                
                 onClick={() => {
-                  navigate("/track/timer");
+                  if(useremail){
+                    navigate("/track/timer");
+
+                  }
+                  else{
+                    alert("plz login again")
+                  }
+                 
                 }}
               >
                 Try for free
