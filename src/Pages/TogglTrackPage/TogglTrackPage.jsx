@@ -1,4 +1,15 @@
-import { Box, Button, Flex, Input, Select } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  Input,
+  ModalFooter,
+  PopoverArrow,
+  PopoverBody,
+  PopoverCloseButton,
+  PopoverFooter,
+  Select,
+} from "@chakra-ui/react";
 import React, { useRef } from "react";
 import styles from "./togglTrackPage.module.css";
 import {
@@ -36,11 +47,10 @@ import {
   ModalOverlay,
   ModalContent,
   ModalHeader,
- 
   ModalBody,
   ModalCloseButton,
-  useDisclosure
-} from '@chakra-ui/react'
+  useDisclosure,
+} from "@chakra-ui/react";
 
 import {
   Popover,
@@ -48,9 +58,13 @@ import {
   PopoverContent,
   PopoverHeader,
 } from "@chakra-ui/react";
-import { useSelector ,useDispatch} from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { addProject, getProject } from "../../Redux/AppReducer/actions";
 import SideBar from "../../Components/SideBar";
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import timeGridPlugin from '@fullcalendar/timegrid'
+import interactionPlugin from "@fullcalendar/interaction";
 
 const TogglTrackPage = () => {
   const [timer, setTimer] = useState(0);
@@ -58,20 +72,20 @@ const TogglTrackPage = () => {
 
   // const [title,setTitle]=useState("")
   // const [clientName,setClientName]=useState("")
-  const [visible,setVisible]=useState(false)
+  const [visible, setVisible] = useState(false);
 
-  const [form,setForm]=useState({
-    title:"",
-    clientName:"",
-    template:"",
-  })
+  const [form, setForm] = useState({
+    title: "",
+    clientName: "",
+    template: "",
+  });
 
-// const store=useSelector((store)=>store)
-// console.log(store)
-const tasks=useSelector((store)=>store.appReducer.tasks)
-console.log(tasks)
+  // const store=useSelector((store)=>store)
+  // console.log(store)
+  const tasks = useSelector((store) => store.appReducer.tasks);
+  console.log(tasks);
 
-const dispatch=useDispatch()
+  const dispatch = useDispatch();
 
   const date = new Date();
   var hours = date.getHours();
@@ -113,45 +127,57 @@ const dispatch=useDispatch()
     setTimer(0);
   };
 
+  const handleAdd = (e) => {
+    e.preventDefault();
 
-  const handleAdd=(e)=>{
-    e.preventDefault()
+    const payload = {
+      title: form.title,
+      clientName: form.clientName,
+      template: form.template,
+      visible: false,
+    };
 
-    const payload={
-      title:form.title,
-      clientName:form.clientName,
-      template:form.template,
-      visible:false
-    }
+    dispatch(addProject(payload)).then((r) => {
+      dispatch(getProject());
+      alert("Project Added");
+    });
+  };
 
-  dispatch(addProject(payload)).then((r)=>{
-    dispatch(getProject())
-    alert("Project Added")
-  })
-  }
-  
-  const handleChange=(e)=>{
-   
-    const {name,value}=e.target
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
-    setForm({...form,[name]:value})
-
-
-  }
+    setForm({ ...form, [name]: value });
+  };
 
   // const endminutes=date.getMinutes() + 10 + ' ' + ampm;
   //   // const endTime=hours+ ":" + endminutes
   // console.log(strTime)
 
+  
   const [show, setShow] = useState(false);
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const [popoverOpen,setPopoverOpen]=useState(false)
+
+  const { isOpen, onOpen, onClose ,onToggle} = useDisclosure();
+  const handleCalendar=()=>{
+   return <Popover >
+    <PopoverTrigger>
+      <Button onClick={handleCalendar}>click</Button>
+    </PopoverTrigger>
+    <PopoverContent>
+      <PopoverArrow />
+      <PopoverCloseButton />
+      <PopoverHeader>Confirmation!</PopoverHeader>
+      <PopoverBody>Are you sure you want to have that milkshake?</PopoverBody>
+    </PopoverContent>
+  </Popover> 
+
+  }
+
 
   return (
     <div className={styles.togglTrackPage_main_container}>
-
       {/* Side Bar */}
-    <SideBar/>
-
+      <SideBar />
 
       {/* ********  Right Container *********************** */}
 
@@ -159,71 +185,81 @@ const dispatch=useDispatch()
         {/* ****************  Right TopSection ***********8 */}
         <div className={styles.right_topsection}>
           <div className={styles.right_input_div}>
-            <Input type="text" placeholder="What are you working on?" focusBorderColor="white" _placeholder={{  color: 'gray.500' ,fontWeight:"bold"}}/>
+            <Input
+              type="text"
+              placeholder="What are you working on?"
+              focusBorderColor="white"
+              _placeholder={{ color: "gray.500", fontWeight: "bold" }}
+            />
           </div>
 
+          {/* create project modal */}
 
-{/* create project modal */}
+          {/* <div className={styles.create_button} onClick={onOpen}>
+            Create Project
+          </div> */}
 
+          {/* <Modal isOpen={isOpen} onClose={onClose} size="sm">
+            <ModalOverlay />
+            <ModalContent>
+              <ModalHeader>Create new project</ModalHeader>
+              <ModalCloseButton />
+              <ModalBody>
+                <form onSubmit={handleAdd}>
+                  <Box mt="20px" fontSize="12px">
+                    <h3>NAME</h3>
+                    <Input
+                      mt="10px"
+                      value={form.title}
+                      name="title"
+                      onChange={handleChange}
+                      placeholder="Project name"
+                    />
+                  </Box>
 
+                  <Box mt="20px" fontSize="12px">
+                    <h3>CLIENT</h3>
+                    <Input
+                      mt="10px"
+                      value={form.clientName}
+                      name="clientName"
+                      onChange={handleChange}
+                      placeholder="Client name"
+                    />
+                  </Box>
 
-  <div className={styles.create_button} onClick={onOpen} >Create Project</div>
+                  <Box mt="20px" fontSize="12px">
+                    <h3>TEMPLATE</h3>
+                    <Select mt="10px" name="template" onChange={handleChange}>
+                      <option value="temp1">Temp1</option>
+                      <option value="temp2">Temp2</option>
+                    </Select>
+                  </Box>
 
-<Modal isOpen={isOpen} onClose={onClose} size="sm">
-  <ModalOverlay />
-  <ModalContent>
-    <ModalHeader>Create new project</ModalHeader>
-    <ModalCloseButton />
-    <ModalBody>
+            
+                  <Flex mt="20px" direction={"row"} gap="15px" fontSize="12px">
+                    <Box>
+                      <ChevronRightIcon />
+                    </Box>
+                    <Box>ESTIMATES AND BILLING OPTIONS</Box>
+                  </Flex>
 
-      <form  onSubmit={handleAdd}>
-       <Box mt="20px" fontSize="12px">
-        <h3>NAME</h3>
-        <Input mt="10px" value={form.title} name="title"onChange={handleChange} placeholder="Project name"/>
-      </Box>
-
-
-      <Box  mt="20px" fontSize="12px">
-        <h3>CLIENT</h3>
-        <Input mt="10px" value={form.clientName}  name="clientName" onChange={handleChange} placeholder="Client name"/>
-      </Box>
-
-
-      <Box  mt="20px" fontSize="12px">
-        <h3>TEMPLATE</h3>
-        <Select mt="10px" name="template" onChange={handleChange} >
-<option value="temp1">Temp1</option>
-<option value="temp2">Temp2</option>
-        </Select>
-      </Box>
-
-
-{/* 
-      <Box  mt="20px" fontSize="12px">
-        <h3>VISIBILITY</h3>
-        <Input mt="10px" placeholder="Private"/>
-      </Box> */}
-      <Flex mt="20px" direction={"row"} gap="15px" fontSize="12px"> 
-        <Box><ChevronRightIcon/></Box>
-        <Box>ESTIMATES AND BILLING OPTIONS</Box>
-      </Flex>
-
-
-      <Input fontSize="12px"  bg="#d164c5" color="white" _hover={{
-
-        backgroundColor:"#d779c6"
-      }} mt="20px" mb="10px" type="submit"  value="Create project"/>
-
-      </form>
-   
-    </ModalBody>
-
-   
-  </ModalContent>
-</Modal>
-
-
-
+                  <Input
+                    fontSize="12px"
+                    bg="#d164c5"
+                    color="white"
+                    _hover={{
+                      backgroundColor: "#d779c6",
+                    }}
+                    mt="20px"
+                    mb="10px"
+                    type="submit"
+                    value="Create project"
+                  />
+                </form>
+              </ModalBody>
+            </ModalContent>
+          </Modal> */}
 
           <BsFillTagFill />
           <BsCurrencyDollar />
@@ -315,263 +351,25 @@ const dispatch=useDispatch()
           </div>
         </div>
 
-        {/* calendar section */}
-        <div className={styles.calendar_section_main_div}>
-          <table className={styles.calendar_time_table}>
-            <thead>
-              <tr>
-                <th className={styles.calender_first_heading}>
-                  <MinusIcon fontSize="12px" color={"black"} />
-                  <AddIcon fontSize="12px" />{" "}
-                </th>
-                <th className={styles.calendar_section_table_heading}>
-                  <h6>
-                    <span className={styles.date_span}>22</span>{" "}
-                    <span className={styles.span_day}>Mon</span>{" "}
-                    <p className={styles.heading_time}>0:15:00</p>
-                  </h6>
-                </th>
+        {/* calendar div */}
+        <Box pt="20px">
+          
+        <FullCalendar 
+            plugins={[dayGridPlugin,timeGridPlugin, interactionPlugin]}
+            // dateClick={onOpen}
+            headerToolbar={{
+              right: 'prev,next today',
+              left: 'title',
+              center: 'dayGridMonth,timeGridWeek,timeGridDay'
+            }}
+          />
+  
+          {/*  modal */}
+   
+  
 
-                <th className={styles.calendar_section_table_heading}>
-                  <h6>
-                    <span className={styles.date_span}>23</span>{" "}
-                    <span className={styles.span_day}>Tue</span>{" "}
-                    <p className={styles.heading_time}>0:10:00</p>
-                  </h6>
-                </th>
-                <th className={styles.calendar_section_table_heading}>
-                  <h6>
-                    <span className={styles.date_span}>24</span>{" "}
-                    <span className={styles.span_day}>Wed</span>{" "}
-                    <p className={styles.heading_time}>0:00:00</p>
-                  </h6>
-                </th>
-                <th className={styles.calendar_section_table_heading}>
-                  <h6>
-                    <span className={styles.date_span}>25</span>{" "}
-                    <span className={styles.span_day}>Thur</span>{" "}
-                    <p className={styles.heading_time}>0:15:00</p>
-                  </h6>
-                </th>
-                <th className={styles.calendar_section_table_heading}>
-                  <h6>
-                    <span className={styles.date_span}>26</span>{" "}
-                    <span className={styles.span_day}>Fri</span>{" "}
-                    <p className={styles.heading_time}>0:15:00</p>
-                  </h6>
-                </th>
-                <th className={styles.calendar_section_table_heading}>
-                  <h6>
-                    <span className={styles.date_span}>27</span>{" "}
-                    <span className={styles.span_day}>Sat</span>{" "}
-                    <p className={styles.heading_time}>0:15:00</p>
-                  </h6>
-                </th>
-                <th className={styles.calendar_section_table_heading}>
-                  <h6>
-                    <span className={styles.date_span}>28</span>{" "}
-                    <span className={styles.span_day}>Sun</span>{" "}
-                    <p className={styles.heading_time}>0:15:00</p>
-                  </h6>
-                </th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {/* *******  row1 ***************/}
-              <tr>
-                <td>9:00 am</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              {/* *******  row2 ***************/}
-              <tr>
-                <td>10:00 am</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              {/* *******  row3 ***************/}
-              <tr>
-                <td>11:00 am</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              {/* *******  row4 ***************/}
-              <tr>
-                <td>12:00 pm</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              {/* *******  row5 ***************/}
-              <tr>
-                <td>1:00 pm</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              {/* *******  row6 ***************/}
-              <tr>
-                <td>2:00 pm</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              {/* *******  row7 ***************/}
-              <tr>
-                <td>3:00 pm</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              {/* *******  row8 ***************/}
-              <tr>
-                <td>4:00 pm</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              {/* *******  row9 ***************/}
-              <tr>
-                <td>5:00 pm</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              {/* *******  row10 ***************/}
-              <tr>
-                <td>6:00 pm</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              {/* *******  row11 ***************/}
-              <tr>
-                <td>7:00 pm</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              {/* *******  row12 ***************/}
-              <tr>
-                <td>8:00 pm</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              {/* *******  row13 ***************/}
-              <tr>
-                <td>9:00 pm</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              {/* *******  row14 ***************/}
-              <tr>
-                <td>10:00 pm</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              {/* *******  row15 ***************/}
-              <tr>
-                <td>11:00 pm</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-
-              {/* *******  row16 ***************/}
-              <tr>
-                <td>00:00</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+     
+        </Box>
       </div>
     </div>
   );

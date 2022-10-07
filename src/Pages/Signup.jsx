@@ -103,7 +103,7 @@ const navigate = useNavigate();
               <label>Email </label>
               <br />
               <input
-                type="text"
+                type="email"
                 name="email"
                 onChange={(e) =>setValue((prev) => ({...prev, email : e.target.value}))}
                 placeholder="Email"
