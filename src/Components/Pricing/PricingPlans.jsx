@@ -26,9 +26,9 @@ const PricingPlans = () => {
   const [annHover, setAnnHover] = useState(false);
   const [hoverSlider, setHoverSlider] = useState(false);
   return (
-    <Box w={"100%"} m="auto" bg={"#2C1338"}>
+    <Box w={"100%"} m="auto" bg={"#2C1338"} pt="100px">
       <Box maxW={"50%"} m="auto" color={"#FCE5D8"} textAlign="center">
-        <Heading p="2rem 0" size={"2xl"}>
+        <Heading p="2rem 0" size={{ base: "lg", md: "xl", lg: "2xl" }}>
           Pricing Plans
         </Heading>
         <Text fontSize={"lg"} m="20px 0">
@@ -36,7 +36,7 @@ const PricingPlans = () => {
           our Premium features.
         </Text>
       </Box>
-      <Box m="60px auto 50px" maxW={"40%"} position="relative">
+      <Box m="60px auto 50px" w={"40%"} position="relative">
         <Flex justifyContent={"center"}>
           <Box
             color={"black"}
@@ -47,17 +47,24 @@ const PricingPlans = () => {
             top="12px"
             transform="rotate(-25deg)"
           >
-            <Text>Save 10%</Text>
-            <Text position="absolute" left="40%" bottom="-14px" color="#FCE5D8">
+            <Text display={{ base: "none", lg: "block" }}>Save 10%</Text>
+            <Text
+              display={{ base: "none", lg: "block" }}
+              position="absolute"
+              left="40%"
+              bottom="-14px"
+              color="#FCE5D8"
+            >
               <TriangleDownIcon />
             </Text>
           </Box>
-          <Box color={"#FCE5D8"} fontSize="18px" p="10px 0">
+          <Box color={"#FCE5D8"} minW="40%" fontSize="18px" p="10px 0">
             Choose your billing:
           </Box>
         </Flex>
         <Flex
           maxW={"68%"}
+          minW="180px"
           gridGap="5px"
           height="50px"
           p="3px 0"
@@ -68,11 +75,11 @@ const PricingPlans = () => {
           position="relative"
         >
           <Box
-            w="180px"
+            w="49%"
             bg="#FFFF"
             textAlign={"center"}
             color={"black"}
-            p="10px 20px"
+            p="10px 10px"
             borderRadius="25px"
             position={"absolute"}
             left="1"
@@ -80,10 +87,10 @@ const PricingPlans = () => {
             Annual
           </Box>
           <Box
-            w="50%"
+            w="49%"
             textAlign={"center"}
             color={"black"}
-            p="10px 20px"
+            p="10px 10px"
             borderRadius="25px"
             position={"absolute"}
             left="50%"
@@ -93,10 +100,10 @@ const PricingPlans = () => {
             Monthly
           </Box>
           <Box
-            w="180px"
+            w="49%"
             textAlign={"center"}
             color={"#FFFF"}
-            p="10px 20px"
+            p="10px 10px"
             borderRadius="25px"
             position={"absolute"}
             left={!hoverSlider ? "1" : "50%"}
@@ -142,9 +149,18 @@ const PricingPlans = () => {
         pb="50px"
       >
         <Box w="70%" m="auto" position={"relative"}>
-          <HStack bg="#FFF3ED" p="40px" justifyContent="space-between">
+          <HStack
+            bg="#FFF3ED"
+            p={{ base: "20px", lg: "40px" }}
+            justifyContent={{ base: "center", lg: "space-between" }}
+          >
             <Box w="70%">
-              <Heading size="md" color="#2C1338" p="20px" letterSpacing="2px">
+              <Heading
+                size="md"
+                color="#2C1338"
+                p={{ base: "5px", lg: "20px" }}
+                letterSpacing="2px"
+              >
                 “Toggl Track increased our profitability by at least 20%. We
                 found out where the team was spending too much time on clients.
                 Toggl Track gave us the ability to restrategize, find out what’s
@@ -159,7 +175,7 @@ const PricingPlans = () => {
                 >{`Read the case study >`}</Text>
               </Flex>
             </Box>
-            <Box>
+            <Box display={{ base: "none", lg: "block" }}>
               <Image
                 position="absolute"
                 top="-35px"
@@ -173,6 +189,8 @@ const PricingPlans = () => {
             alignItems="center"
             bg="#FCE5D8"
             p="20px 40px"
+            flexDirection={{ base: "column", lg: "row" }}
+            gridGap={{ base: "20px", lg: "10px" }}
           >
             <Heading size="md">
               Toggl Track is trusted by Sweat+Co and 70,000+ teams

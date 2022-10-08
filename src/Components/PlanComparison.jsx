@@ -178,18 +178,24 @@ const PlanComparison = () => {
       </Heading>
       <Box>
         <Flex borderBottom="1px solid #C4BDC7" bg="#FFF3ED">
-          <Box w="40%"></Box>
-          <Flex w="60%">
+          <Box w={{ base: "80%", lg: "40%" }}></Box>
+          <Flex w={{ base: "20%", lg: "60%" }}>
             <Box
               w="25%"
               textAlign="center"
               borderLeft="1px solid #C4BDC7"
               p="12px"
             >
-              <Heading size="md" color="#2C1338" p="7px 0">
+              <Heading
+                size="md"
+                color="#2C1338"
+                p="7px 0"
+                // transform={{ base: "rotate(180deg)" }}
+              >
                 Free
               </Heading>
               <Button
+                display={{ base: "none", lg: "block" }}
                 p="10px 20px"
                 bg="#2C1338"
                 borderRadius="50px"
@@ -204,10 +210,16 @@ const PlanComparison = () => {
               borderLeft="1px solid #C4BDC7"
               p="12px"
             >
-              <Heading size="md" color="#2C1338" p="7px 0">
+              <Heading
+                size="md"
+                color="#2C1338"
+                p="7px 0"
+                // transform={{ base: "rotate(270deg)" }}
+              >
                 Starter
               </Heading>
               <Button
+                display={{ base: "none", lg: "block" }}
                 p="10px 20px"
                 bg="#2C1338"
                 borderRadius="50px"
@@ -224,10 +236,16 @@ const PlanComparison = () => {
               p="12px"
               borderLeft="1px solid #C4BDC7"
             >
-              <Heading size="md" color="#2C1338" p="7px 0">
+              <Heading
+                size="md"
+                color="#2C1338"
+                p="7px 0"
+                // transform={{ base: "rotate(270deg)" }}
+              >
                 Premium
               </Heading>
               <Button
+                display={{ base: "none", lg: "block" }}
                 p="10px 20px"
                 bg="#E57CD8"
                 borderRadius="50px"
@@ -253,10 +271,16 @@ const PlanComparison = () => {
               borderLeft="1px solid #C4BDC7"
               p="12px"
             >
-              <Heading size="md" color="#2C1338" p="7px 0">
+              <Heading
+                size="md"
+                color="#2C1338"
+                p="7px 0"
+                // transform={{ base: "rotate(270deg)" }}
+              >
                 Enterprice
               </Heading>
               <Button
+                display={{ base: "none", lg: "block" }}
                 p="10px 20px"
                 bg="#2C1338"
                 borderRadius="50px"
