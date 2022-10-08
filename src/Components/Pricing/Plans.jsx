@@ -166,7 +166,16 @@ const Plans = () => {
   const [button4Hovered, setButton4Hovered] = useState(false);
   return (
     <Box w="100%" m="auto">
-      <Grid w="80%" m="auto" gridTemplateColumns={"repeat(4,24%)"} gap="10px">
+      <Grid
+        w="80%"
+        m="auto"
+        gridTemplateColumns={{
+          base: "repeat(1,98%)",
+          md: "repeat(2,48%)",
+          lg: "repeat(4,24%)",
+        }}
+        gap="10px"
+      >
         <GridItem position="relative" bg="#412A4C" p="20px" mt="50px">
           <Heading size={"md"} color="#FFFF" mb="15px">
             Free

@@ -6,7 +6,7 @@ import Navbar from "./Navbar";
 const Pricing = () => {
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <PricingPlans />
     </>
   );
