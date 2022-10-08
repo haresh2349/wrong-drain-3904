@@ -35,7 +35,7 @@ import {
 } from "react-icons/ri";
 import { GoPulse } from "react-icons/go";
 import { IoIosFolder, IoIosHelpCircle } from "react-icons/io";
-import { HiUsers } from "react-icons/hi";
+import { HiFolder, HiUsers } from "react-icons/hi";
 import { FaFolderMinus, FaStopCircle } from "react-icons/fa";
 import { GiPlug } from "react-icons/gi";
 import { CgOrganisation } from "react-icons/cg";
@@ -65,13 +65,16 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from "@fullcalendar/interaction";
+import PopoverComponent from "../../Components/PopoverComponent";
+import CreateModal from "../../Components/CreateModal";
+import {BiRightArrowAlt} from "react-icons/bi"
+import moment from "moment";
 
 const TogglTrackPage = () => {
   const [timer, setTimer] = useState(0);
   let timerid = useRef(null);
 
-  // const [title,setTitle]=useState("")
-  // const [clientName,setClientName]=useState("")
+  
   const [visible, setVisible] = useState(false);
 
   const [form, setForm] = useState({
@@ -80,10 +83,9 @@ const TogglTrackPage = () => {
     template: "",
   });
 
-  // const store=useSelector((store)=>store)
-  // console.log(store)
-  const tasks = useSelector((store) => store.appReducer.tasks);
-  console.log(tasks);
+ 
+
+
 
   const dispatch = useDispatch();
 
@@ -149,29 +151,37 @@ const TogglTrackPage = () => {
     setForm({ ...form, [name]: value });
   };
 
-  // const endminutes=date.getMinutes() + 10 + ' ' + ampm;
-  //   // const endTime=hours+ ":" + endminutes
-  // console.log(strTime)
+
+  const [addTask,setAddTask]=useState({
+    task:"",
+    time:new Date(),
+    startTime:"0:0:00",
+    endTime:"0:15:00"
+
+  })
+
+  const handleTask=(e)=>{
+    const { name, value } = e.target;
+
+    setAddTask({ ...addTask, [name]: value });
+  }
+
+  const handleAddTask=(e)=>{
+    e.preventDefault()
+
+    console.log(moment(addTask.time).toDate())
+
+  }
+ 
 
   
   const [show, setShow] = useState(false);
-  const [popoverOpen,setPopoverOpen]=useState(false)
+  
+
+ 
 
   const { isOpen, onOpen, onClose ,onToggle} = useDisclosure();
-  const handleCalendar=()=>{
-   return <Popover >
-    <PopoverTrigger>
-      <Button onClick={handleCalendar}>click</Button>
-    </PopoverTrigger>
-    <PopoverContent>
-      <PopoverArrow />
-      <PopoverCloseButton />
-      <PopoverHeader>Confirmation!</PopoverHeader>
-      <PopoverBody>Are you sure you want to have that milkshake?</PopoverBody>
-    </PopoverContent>
-  </Popover> 
-
-  }
+ 
 
 
   return (
@@ -195,71 +205,10 @@ const TogglTrackPage = () => {
 
           {/* create project modal */}
 
-          {/* <div className={styles.create_button} onClick={onOpen}>
-            Create Project
-          </div> */}
-
-          {/* <Modal isOpen={isOpen} onClose={onClose} size="sm">
-            <ModalOverlay />
-            <ModalContent>
-              <ModalHeader>Create new project</ModalHeader>
-              <ModalCloseButton />
-              <ModalBody>
-                <form onSubmit={handleAdd}>
-                  <Box mt="20px" fontSize="12px">
-                    <h3>NAME</h3>
-                    <Input
-                      mt="10px"
-                      value={form.title}
-                      name="title"
-                      onChange={handleChange}
-                      placeholder="Project name"
-                    />
-                  </Box>
-
-                  <Box mt="20px" fontSize="12px">
-                    <h3>CLIENT</h3>
-                    <Input
-                      mt="10px"
-                      value={form.clientName}
-                      name="clientName"
-                      onChange={handleChange}
-                      placeholder="Client name"
-                    />
-                  </Box>
-
-                  <Box mt="20px" fontSize="12px">
-                    <h3>TEMPLATE</h3>
-                    <Select mt="10px" name="template" onChange={handleChange}>
-                      <option value="temp1">Temp1</option>
-                      <option value="temp2">Temp2</option>
-                    </Select>
-                  </Box>
-
-            
-                  <Flex mt="20px" direction={"row"} gap="15px" fontSize="12px">
-                    <Box>
-                      <ChevronRightIcon />
-                    </Box>
-                    <Box>ESTIMATES AND BILLING OPTIONS</Box>
-                  </Flex>
-
-                  <Input
-                    fontSize="12px"
-                    bg="#d164c5"
-                    color="white"
-                    _hover={{
-                      backgroundColor: "#d779c6",
-                    }}
-                    mt="20px"
-                    mb="10px"
-                    type="submit"
-                    value="Create project"
-                  />
-                </form>
-              </ModalBody>
-            </ModalContent>
-          </Modal> */}
+         
+             <CreateModal />
+       
+           
 
           <BsFillTagFill />
           <BsCurrencyDollar />
@@ -356,7 +305,7 @@ const TogglTrackPage = () => {
           
         <FullCalendar 
             plugins={[dayGridPlugin,timeGridPlugin, interactionPlugin]}
-            // dateClick={onOpen}
+            dateClick={onOpen}
             headerToolbar={{
               right: 'prev,next today',
               left: 'title',
@@ -366,7 +315,34 @@ const TogglTrackPage = () => {
   
           {/*  modal */}
    
+         
+
+<Modal isOpen={isOpen} onClose={onClose}  isCentered  size="lg" >
+  <ModalOverlay />
+  <ModalContent  >
   
+    <ModalCloseButton />
+    <ModalBody p="30px" >
+   <Box mt="20px"><Input placeholder="What have you done" name="task" value={addTask.task} onChange={handleTask}/></Box>
+   <Box display="flex" gap="10px" mt="15px" pl="15px">
+    <HiFolder/>
+    <BsFillTagFill />
+    <BsCurrencyDollar />
+
+    </Box> 
+    <Box display="flex" justifyContent={"space-around"} alignItems="center" mt="15px">
+      <Input type="datetime-local" w="220px" name="time" value={addTask.time} onChange={handleTask}/>
+      <BiRightArrowAlt fontSize={"22px"} />
+      <Input type="text" width="60px" name="startTime" value={addTask.startTime} onChange={handleTask}/>
+      <Input type="text" w="60px" name="endTime" value={addTask.endTime} onChange={handleTask}/>
+      <Button bg={"#dd6fd1"} color="white" onClick={handleAddTask}>Add</Button>
+
+    </Box>
+    </ModalBody>
+
+    
+  </ModalContent>
+</Modal>
 
      
         </Box>
