@@ -13,7 +13,7 @@ Toggl Track tracks time blocks, optionally labeled with a task, a project, and t
 
 ## Deployment Link
 
-Deplyment Link : https://toggl-track.vercel.app/
+Deplyment Link : https://toggl-track-clone.vercel.app/
 
 
 <h2>Here are some screen-shots from our website</h2>
