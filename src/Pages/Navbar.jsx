@@ -9,9 +9,11 @@ import {
 import { useNavigate } from "react-router-dom";
 import Popup from "../Components/Popup";
 import { useState } from "react";
+import { useToast } from "@chakra-ui/react";
 const Navbar = () => {
-   const[show,setShow]=useState(false)
+  const [show, setShow] = useState(false);
   const navigate = useNavigate();
+  const toast = useToast();
   const useremail = JSON.parse(localStorage.getItem("usermail"));
   return (
     <>
@@ -29,12 +31,11 @@ const Navbar = () => {
             alt=""
           />
 
-
           <Popover>
             <div className={style.sBox}>
               <PopoverTrigger>
                 <Button
-                  style={{ backgroundColor: "#2c1338",color:"#fff" }}
+                  style={{ backgroundColor: "#2c1338", color: "#fff" }}
                   className={style.btnx}
                 >
                   Product<i className={style.arrow}></i>
@@ -53,13 +54,11 @@ const Navbar = () => {
                 style={{ backgroundColor: "#2c1338" }}
                 className={style.btn}
                 onClick={() => {
-                  setShow(!show)
+                  setShow(!show);
                   navigate("/track/freelance-time-tracking");
                 }}
               >
                 Why Track? <i className={style.arrow}></i>
-
-               
               </Button>
               <Button
                 style={{ backgroundColor: "#2c1338" }}
@@ -79,8 +78,6 @@ const Navbar = () => {
               <Button
                 style={{ backgroundColor: "#2c1338" }}
                 className={style.btn}
-
-               
                 onClick={() => {
                   navigate("/track/login");
                 }}
@@ -90,29 +87,27 @@ const Navbar = () => {
               <Button
                 style={{ backgroundColor: "#eed052", borderRadius: "25px" }}
                 className={style.btn2}
-
-               
                 onClick={() => {
-                  if(useremail){
+                  if (useremail) {
                     navigate("/track/timer");
-
+                  } else {
+                    toast({
+                      title: "Please Login",
+                      status: "error",
+                      duration: 4000,
+                      isClosable: true,
+                    });
                   }
-                  else{
-                    alert("plz login again")
-                  }
-                 
                 }}
               >
                 Try for free
               </Button>
             </div>
-           
           </Popover>
         </div>
       </div>
 
-      {show ? <Popup/> : ""}
-
+      {show ? <Popup /> : ""}
     </>
   );
 };
